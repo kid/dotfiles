@@ -39,3 +39,6 @@ do
 done
 
 fish -c 'fundle install ; and exit'
+
+# Sets default iTerm2 profile
+defaults write com.googlecode.iterm2 "Default Bookmark Guid" -string "A879712F-6297-42E3-BFFD-9A5664D31470"
