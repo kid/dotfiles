@@ -2,6 +2,7 @@
 
 set -e
 
+# Install Homebrew
 if ! [ -x "$(command -v brew)" ]; then
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 else
@@ -33,11 +34,13 @@ brew cask install \
   font-inconsolata-nerd-font \
   font-inconsolata-nerd-font-mono
 
+# Install all config files
 for item in `ls stows`;
 do
   (stow --ignore='\.swp$' --dir=stows --target=$HOME $item)
 done
 
+# Install fish plugins
 fish -c 'fundle install ; and exit'
 
 # Sets default iTerm2 profile
