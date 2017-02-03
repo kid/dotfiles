@@ -51,7 +51,7 @@ set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+,eol:¬
 set list
 
 " vim-airline configuration
-let g:airline_theme = 'base16'
+let g:airline_theme = 'base16_eighties'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
@@ -70,6 +70,6 @@ let g:airline#extensions#tabline#enabled = 1
 " sudo write :)
 " command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 
-if !empty(glob("~/.vim/plugged/base16-vim/colors/base16-tomorrow-night.vim"))
-  colorscheme base16-tomorrow-night
+if !empty(glob("~/.vim/plugged/base16-vim/colors/base16-eighties.vim"))
+  colorscheme base16-eighties
 endif
