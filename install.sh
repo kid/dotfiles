@@ -30,8 +30,6 @@ brew cask install \
 
 brew tap caskroom/fonts
 brew cask install \
-  font-anonymouspro-nerd-font \
-  font-anonymouspro-nerd-font-mono \
   font-inconsolata-nerd-font \
   font-inconsolata-nerd-font-mono
 
