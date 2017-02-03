@@ -1,0 +1,33 @@
+[user]
+  name = Arnaud Rebts
+  email = arnaud.rebts@gmail.com
+  signingkey = DBC6BA64
+[color]
+  ui = auto
+  branch = auto
+  diff = auto
+  interactive = auto
+  status = auto
+[push]
+  default = simple
+[core]
+  editor = /usr/bin/vim
+[alias]
+  st = status -s
+  cl = clone
+  ci = commit
+  co = checkout
+  br = branch
+  r = reset
+  cp = cherry-pick
+  gr = grp -Ii
+  diff = diff --word-diff
+  ls = log --decorate --oneline
+  ll = log --decorate --numstat
+  lg = log --decorate --graph --abbrev-commit --date=relative --all
+[rebase]
+  autosquash = true
+[rerere]
+  enabled = true
+[commit]
+  gpgsign = true
