@@ -11,6 +11,8 @@ fi
 
 brew install \
   ack \
+  bash \
+  bash-completion \
   fish \
   git \
   gpg \
