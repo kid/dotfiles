@@ -25,6 +25,7 @@ brew install \
 
 brew cask install \
   1password \
+  docker \
   dropbox \
   google-chrome \
   iterm2 \
