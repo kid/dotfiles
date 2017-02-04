@@ -11,7 +11,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
 
-set rtp+=/usr/local/bin/fzf
+" set rtp+=/usr/local/bin/fzf
 
 call plug#begin()
 
