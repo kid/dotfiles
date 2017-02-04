@@ -37,6 +37,21 @@ brew cask install \
   font-inconsolata-nerd-font \
   font-inconsolata-nerd-font-mono
 
+# Install or update nvm
+if [ -z "$NVM_DIR" ]; then
+  export NVM_DIR="$HOME/.nvm" && (
+    git clone https://github.com/creationix/nvm.git "$NVM_DIR"
+    cd "$NVM_DIR"
+    git checkout `git describe --abbrev=0 --tags --match "v[0-9]*" origin`
+  ) && . "$NVM_DIR/nvm.sh"
+else
+  (
+    cd "$NVM_DIR"
+    git fetch origin
+    git checkout `git describe --abbrev=0 --tags --match "v[0-9]*" origin`
+  ) && . "$NVM_DIR/nvm.sh"
+fi
+
 # Install all config files
 for item in `ls stows`;
 do
