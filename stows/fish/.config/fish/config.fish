@@ -10,5 +10,6 @@ fundle init
 set -g theme_color_scheme base16-dark
 set -g theme_nerd_fonts yes
 
-set -gx NVM_DIR "$HOME/.nvm"
-bass source $NVM_DIR/nvm.sh --no-use
+function nvm
+  bass source ~/.nvm/nvm.sh --no-use ';' nvm $argv
+end

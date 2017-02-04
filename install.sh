@@ -45,16 +45,16 @@ if ! gpg --list-keys DBC6BA64 > /dev/null 2>&1; then
 fi
 
 # Install or update nvm
-if [ -z "$NVM_DIR" ]; then
-  export NVM_DIR="$HOME/.nvm" && (
-    git clone https://github.com/creationix/nvm.git "$NVM_DIR"
-    cd "$NVM_DIR"
-    git checkout `git describe --abbrev=0 --tags --match "v[0-9]*" origin`
-  ) && . "$NVM_DIR/nvm.sh"
-else
+if [ -n "$NVM_DIR" ] && [ -f "$NVM_DIR/nvm.sh" ]; then
   (
     cd "$NVM_DIR"
     git fetch origin
+    git checkout `git describe --abbrev=0 --tags --match "v[0-9]*" origin`
+  ) && . "$NVM_DIR/nvm.sh"
+else
+  export NVM_DIR="$HOME/.nvm" && (
+    git clone https://github.com/creationix/nvm.git "$NVM_DIR"
+    cd "$NVM_DIR"
     git checkout `git describe --abbrev=0 --tags --match "v[0-9]*" origin`
   ) && . "$NVM_DIR/nvm.sh"
 fi
