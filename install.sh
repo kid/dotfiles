@@ -21,6 +21,7 @@ brew install \
   stow \
   tmux \
   tree \
+  vim \
   wget
 
 brew cask install \

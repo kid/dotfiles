@@ -11,7 +11,7 @@
 [push]
   default = simple
 [core]
-  editor = /usr/bin/vim
+  editor = vim
 [alias]
   st = status -s
   cl = clone
