@@ -36,6 +36,12 @@ brew cask install \
   font-inconsolata-nerd-font \
   font-inconsolata-nerd-font-mono
 
+# Import GPG key from keybase
+if ! gpg --list-keys DBC6BA64 > /dev/null 2>&1; then
+  keybase pgp export -q DBC6BA64 | gpg --import
+  keybase pgp export -q DBC6BA64 --secret | gpg --allow-secret-key-import --import
+fi
+
 # Install or update nvm
 if [ -z "$NVM_DIR" ]; then
   export NVM_DIR="$HOME/.nvm" && (
