@@ -21,7 +21,8 @@ brew install \
   tmux \
   tree \
   vim \
-  wget
+  wget \
+  yarn
 
 brew cask install \
   1password \
