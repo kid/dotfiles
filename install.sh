@@ -21,6 +21,7 @@ brew install \
   tmux \
   tree \
   vim \
+  watchman \
   wget \
   yarn
 
