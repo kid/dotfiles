@@ -1,44 +1,19 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 set -e
 
 # Install Homebrew
-if ! [ -x "$(command -v brew)" ]; then
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-else
-  brew update
+if [[ $OSTYPE =~ ^darwin ]]; then
+  if ! [ -x "$(command -v brew)" ]; then
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  else
+    brew update
+  fi
+
+  # Install all our dependencies with bundle (See Brewfile)
+  brew tap homebrew/bundle
+  brew bundle
 fi
-
-brew install \
-  ack \
-  bash \
-  bash-completion \
-  fish \
-  git \
-  gpg \
-  htop \
-  stow \
-  tmux \
-  tree \
-  vim \
-  watchman \
-  wget \
-  yarn
-
-brew cask install \
-  1password \
-  docker \
-  dropbox \
-  google-chrome \
-  iterm2 \
-  keybase \
-  slack \
-  visual-studio-code
-
-brew tap caskroom/fonts
-brew cask install \
-  font-inconsolata-nerd-font \
-  font-inconsolata-nerd-font-mono
 
 # Import GPG key from keybase
 if ! gpg --list-keys DBC6BA64 > /dev/null 2>&1; then
@@ -47,13 +22,15 @@ if ! gpg --list-keys DBC6BA64 > /dev/null 2>&1; then
 fi
 
 # Install or update nvm
-if [ -n "$NVM_DIR" ] && [ -f "$NVM_DIR/nvm.sh" ]; then
-  (
+if [ -f "$HOME/.nvm/nvm.sh" ]; then
+  echo "Upgrading nvm..."
+  export NVM_DIR="$HOME/.nvm" && (
     cd "$NVM_DIR"
     git fetch origin
     git checkout `git describe --abbrev=0 --tags --match "v[0-9]*" origin`
   ) && . "$NVM_DIR/nvm.sh"
 else
+  echo "Installing nvm..."
   export NVM_DIR="$HOME/.nvm" && (
     git clone https://github.com/creationix/nvm.git "$NVM_DIR"
     cd "$NVM_DIR"
@@ -70,19 +47,8 @@ done
 # Install fish plugins
 fish -c 'fundle install'
 
-# Sets default iTerm2 profile
-defaults write com.googlecode.iterm2 "Default Bookmark Guid" -string "A879712F-6297-42E3-BFFD-9A5664D31470"
-# Disable diming inactive split panes
-defaults write com.googlecode.iterm2 "DimInactiveSplitPanes" -bool false
-
-# Trackpad: enable tap to click for this user and for the login screen
-defaults write com.apple.driver.AppleMultitouchTrackpad Clicking -bool true
-
-# Trackpad: 3 fingers to swipe between pages, 4 to swipe between full screen apps
-defaults write com.apple.driver.AppleMultitouchTrackpad TrackpadThreeFingerHorizSwipeGesture -int 1
-defaults write com.apple.driver.AppleMultitouchTrackpad TrackpadFourFingerHorizSwipeGesture -int 2
-# Avoid creating .DS_Store files on network volumes
-defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
-
-# Automatically hide and show the Dock
-defaults write com.apple.dock autohide -bool true
+# Set macOS preferences
+# We will run this last because this will reload the shell
+if [[ $OSTYPE =~ ^darwin ]]; then
+  source mac.settings.sh
+fi
