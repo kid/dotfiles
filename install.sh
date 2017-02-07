@@ -47,6 +47,11 @@ done
 # Install fish plugins
 fish -c 'fundle install'
 
+# Install vscode extensions
+code --install-extension EditorConfig.EditorConfig
+code --install-extension bsides.Theme-Base16-Eighties
+code --install-extension robertohuertasm.vscode-icons
+
 # Set macOS preferences
 # We will run this last because this will reload the shell
 if [[ $OSTYPE =~ ^darwin ]]; then
