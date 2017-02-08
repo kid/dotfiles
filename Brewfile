@@ -16,6 +16,7 @@ brew 'bash-completion'
 # Install Binaries
 brew 'ack'
 brew 'awscli'
+brew 'diff-so-fancy'
 brew 'fish'
 brew 'git'
 brew 'gpg'

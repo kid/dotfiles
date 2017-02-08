@@ -12,6 +12,7 @@
   default = simple
 [core]
   editor = vim
+  pager = diff-so-fancy | less --tabs=4 -RFX
 [alias]
   st = status -s
   cl = clone
@@ -31,3 +32,5 @@
   enabled = true
 [commit]
   gpgsign = true
+[diff]
+  compactionHeuristic = 1
