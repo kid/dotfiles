@@ -1,7 +1,8 @@
 {
     "editor.fontFamily": "InconsolataForPowerline Nerd Font, Menlo, Monaco, 'Courier New', monospace",
     "editor.fontSize": 14,
-    "editor.formatOnSave": true,
+    "editor.formatOnSave": false,
     "extensions.autoUpdate": true,
-    "workbench.editor.showIcons": true
+    "workbench.editor.showIcons": true,
+    "vsicons.projectDetection.autoReload": true
 }
