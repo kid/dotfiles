@@ -4,5 +4,7 @@
     "editor.formatOnSave": false,
     "extensions.autoUpdate": true,
     "workbench.editor.showIcons": true,
-    "vsicons.projectDetection.autoReload": true
+    "vsicons.associations.disableDetect": true,
+    "vsicons.presets.angular": false,
+    "vsicons.presets.jsOfficial": true
 }
