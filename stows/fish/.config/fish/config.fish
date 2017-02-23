@@ -14,6 +14,9 @@ function nvm
   bass source ~/.nvm/nvm.sh --no-use ';' nvm $argv
 end
 
+# Set VIM as the default editor
+set -x EDITOR vim
+
 alias get='wget -c --content-disposition'
 alias mv='mv -i'
 alias rm='rm -i'
