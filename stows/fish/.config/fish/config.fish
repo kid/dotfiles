@@ -13,3 +13,7 @@ set -g theme_nerd_fonts yes
 function nvm
   bass source ~/.nvm/nvm.sh --no-use ';' nvm $argv
 end
+
+alias get='wget -c --content-disposition'
+alias mv='mv -i'
+alias rm='rm -i'
