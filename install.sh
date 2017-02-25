@@ -49,8 +49,14 @@ fish -c 'fundle install'
 
 # Install vscode extensions
 code --install-extension EditorConfig.EditorConfig
+code --install-extension nepaul.editorconfiggenerator
 code --install-extension bsides.Theme-Base16-Eighties
 code --install-extension robertohuertasm.vscode-icons
+code --install-extension christian-kohler.path-intellisense
+code --install-extension formulahendry.auto-rename-tag
+code --install-extension spywhere.guides
+code --install-extension wmaurer.vscode-jumpy
+code --install-extension dzannotti.vscode-babel-coloring
 
 # Set macOS preferences
 # We will run this last because this will reload the shell
