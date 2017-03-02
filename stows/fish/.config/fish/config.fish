@@ -25,8 +25,11 @@ set -gx EDITOR vim
 set -gx GOPATH (go env GOPATH)
 set -gx PATH "$GOPATH/bin" $PATH
 
+# Access to Vault server
 set -x VAULT_ADDR 'https://home.kidibox.net:8200'
-set -x VAULT_AUTH_GITHUB_TOKEN (cat /keybase/private/arnaudrebts/vault.github.token)
+if test -e /keybase/private/arnaudrebts/vault.github.token
+  set -x VAULT_AUTH_GITHUB_TOKEN (cat /keybase/private/arnaudrebts/vault.github.token)
+end
 
 alias get='wget -c --content-disposition'
 alias mv='mv -i'
