@@ -19,7 +19,14 @@ set -gx LC_ALL en_US.UTF-8
 set -gx LANG en_US.UTF-8
 
 # Set VIM as the default editor
-set -x EDITOR vim
+set -gx EDITOR vim
+
+# Go setup
+set -gx GOPATH (go env GOPATH)
+set -gx PATH "$GOPATH/bin" $PATH
+
+set -x VAULT_ADDR 'https://home.kidibox.net:8200'
+set -x VAULT_AUTH_GITHUB_TOKEN (cat /keybase/private/arnaudrebts/vault.github.token)
 
 alias get='wget -c --content-disposition'
 alias mv='mv -i'
