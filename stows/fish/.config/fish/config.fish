@@ -14,6 +14,10 @@ function nvm
   bass source ~/.nvm/nvm.sh --no-use ';' nvm $argv
 end
 
+# Set missing locales
+set -gx LC_ALL en_US.UTF-8
+set -gx LANG en_US.UTF-8
+
 # Set VIM as the default editor
 set -x EDITOR vim
 
