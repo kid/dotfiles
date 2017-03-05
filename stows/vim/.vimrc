@@ -68,7 +68,7 @@ let g:airline#extensions#tabline#enabled = 1
 " let g:ctrlp_working_path_mode = 'ra'
 
 " sudo write :)
-" command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
+command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 
 if !empty(glob("~/.vim/plugged/base16-vim/colors/base16-eighties.vim"))
   colorscheme base16-eighties
