@@ -4,7 +4,19 @@
     "editor.formatOnSave": false,
     "extensions.autoUpdate": true,
     "workbench.editor.showIcons": true,
-    "vsicons.associations.disableDetect": true,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true,
+        "**/bower_components": true,
+        "**/jspm_packages": true,
+        "**/node_modules": true,
+        ".ansible": true,
+        ".vagrant": true
+    },
     "vsicons.presets.angular": false,
-    "vsicons.presets.jsOfficial": true
+    "vsicons.presets.jsOfficial": true,
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.colorTheme": "Base16 Eighties Dark"
 }
