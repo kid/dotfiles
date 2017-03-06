@@ -3,6 +3,8 @@
     "editor.fontSize": 14,
     "editor.formatOnSave": false,
     "extensions.autoUpdate": true,
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.colorTheme": "Base16 Eighties Dark",
     "workbench.editor.showIcons": true,
     "files.exclude": {
         "**/.git": true,
@@ -15,8 +17,7 @@
         ".ansible": true,
         ".vagrant": true
     },
+    "vsicons.projectDetection.disableDetect": true,
     "vsicons.presets.angular": false,
-    "vsicons.presets.jsOfficial": true,
-    "workbench.iconTheme": "vscode-icons",
-    "workbench.colorTheme": "Base16 Eighties Dark"
+    "vsicons.presets.jsOfficial": true
 }
