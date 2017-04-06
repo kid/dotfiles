@@ -37,3 +37,7 @@ alias rm='rm -i'
 if test -e ~/.config/fish/exports.private.fish
   source ~/.config/fish/exports.private.fish
 end
+
+if test -e ~/.iterm2_shell_integration.fish
+  source ~/.iterm2_shell_integration.fish
+end
