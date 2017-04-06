@@ -10,9 +10,12 @@
   status = auto
 [push]
   default = simple
+  followTags = true
 [core]
   editor = vim
   pager = diff-so-fancy | less --tabs=4 -RFX
+[status]
+  showUntrackedFiles = all
 [alias]
   st = status -s
   cl = clone
@@ -26,6 +29,11 @@
   ls = log --decorate --oneline
   ll = log --decorate --numstat
   lg = log --decorate --graph --abbrev-commit --date=relative --all
+  prune = fetch --prune
+  undo = reset --soft HEAD^
+  stash-all = stash save --include-untracked
+[merge]
+  ff = only
 [rebase]
   autosquash = true
 [rerere]
@@ -34,3 +42,5 @@
   gpgsign = true
 [diff]
   compactionHeuristic = 1
+[transfer]
+  fsckobjects = true
