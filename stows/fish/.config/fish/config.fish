@@ -15,22 +15,25 @@ function nvm
 end
 
 # Set missing locales
-set -gx LC_ALL en_US.UTF-8
-set -gx LANG en_US.UTF-8
+set -x LC_ALL en_US.UTF-8
+set -x LANG en_US.UTF-8
 
 # Set VIM as the default editor
-set -gx EDITOR vim
+set -x EDITOR vim
 
 # Go setup
-set -gx GOPATH (go env GOPATH)
-set -gx PATH "$GOPATH/bin" $PATH
+set -x GOPATH (go env GOPATH)
+set -x PATH "$GOPATH/bin" $PATH
+
+set -x PATH "$HOME/.bin" $PATH
 
 # Access to Vault server
 set -x VAULT_ADDR 'https://home.kidibox.net:8200'
-if test -e /keybase/private/arnaudrebts/vault.github.token
-  set -x VAULT_AUTH_GITHUB_TOKEN (cat /keybase/private/arnaudrebts/vault.github.token)
-end
 
 alias get='wget -c --content-disposition'
 alias mv='mv -i'
 alias rm='rm -i'
+
+if test -e ~/.config/fish/exports.private.fish
+  source ~/.config/fish/exports.private.fish
+end
