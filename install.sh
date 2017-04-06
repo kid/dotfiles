@@ -63,3 +63,7 @@ code --install-extension dzannotti.vscode-babel-coloring
 if [[ $OSTYPE =~ ^darwin ]]; then
   source mac.settings.sh
 fi
+
+# Allow apps from unindentifeid developers
+sudo spctl --master-disable
+
