@@ -16,9 +16,9 @@ if [[ $OSTYPE =~ ^darwin ]]; then
 fi
 
 # Import GPG key from keybase
-if ! gpg --list-keys DBC6BA64 > /dev/null 2>&1; then
-  keybase pgp export -q DBC6BA64 | gpg --import
-  keybase pgp export -q DBC6BA64 --secret | gpg --allow-secret-key-import --import
+if ! gpg --list-keys 94F04789 > /dev/null 2>&1; then
+  keybase pgp export -q 94F04789 | gpg --import
+  keybase pgp export -q 94F04789 --secret | gpg --allow-secret-key-import --import
 fi
 
 # Install or update nvm
