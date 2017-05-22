@@ -19,19 +19,18 @@ Plug 'chriskempson/base16-vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-fugitive'
-" Plug 'ctrlpvim/ctrlp.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
-" Plug 'scrooloose/nerdtree'
-" Plug 'scrooloose/syntastic'
-" Plug 'pangloss/vim-javascript'
-" Plug 'jelera/vim-javascript-syntax'
-" Plug 'othree/yajs.vim'
-" Plug 'isRuslan/vim-es6'
-" Plug 'mxw/vim-jsx'
 Plug 'dag/vim-fish'
+Plug 'fatih/vim-go'
+Plug 'hashivim/vim-consul'
+Plug 'hashivim/vim-nomadproject'
+Plug 'hashivim/vim-packer'
+Plug 'hashivim/vim-terraform'
+Plug 'hashivim/vim-vagrant'
+Plug 'hashivim/vim-vaultproject'
 
 call plug#end()
 
@@ -54,6 +53,10 @@ set list
 let g:airline_theme = 'base16_eighties'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+
+" vim=go configuration
+let g:go_fmt_command = "goimports"
+
 
 " enable vim-jsx for .js files
 " let g:jsx_ext_required = 0
