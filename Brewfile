@@ -2,6 +2,7 @@
 tap 'caskroom/cask'
 tap 'caskroom/fonts'
 tap 'homebrew/bundle'
+tap 'kryptco/tap'
 
 # Install GNU core utilities (those that come with macOS are outdated)
 brew 'coreutils'
@@ -22,6 +23,7 @@ brew 'gawk'
 brew 'git'
 brew 'gpg'
 brew 'jq'
+brew 'kr'
 brew 'httpie'
 brew 'hub'
 brew 'mas'
