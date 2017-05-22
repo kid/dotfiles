@@ -11,6 +11,7 @@
         "**/.svn": true,
         "**/.hg": true,
         "**/.DS_Store": true,
+        "**/.terraform": true,
         "**/bower_components": true,
         "**/jspm_packages": true,
         "**/node_modules": true,
