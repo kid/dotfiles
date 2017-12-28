@@ -34,7 +34,7 @@ Plug 'hashivim/vim-vaultproject'
 
 call plug#end()
 
-" set t_Co=256
+set t_Co=256
 set mouse=a
 set ttymouse=xterm2
 set colorcolumn=100
@@ -48,6 +48,8 @@ set sw=2
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+,eol:¬
 set list
+
+let base16colorspace=256  " Access colors present in 256 colorspace
 
 " vim-airline configuration
 let g:airline_theme = 'base16_eighties'

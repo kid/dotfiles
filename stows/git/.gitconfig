@@ -3,11 +3,7 @@
   email = arnaud.rebts@gmail.com
   signingkey = 94F04789
 [color]
-  ui = auto
-  branch = auto
-  diff = auto
-  interactive = auto
-  status = auto
+  ui = true
 [push]
   default = simple
   followTags = true

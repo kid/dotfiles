@@ -49,21 +49,22 @@ fish -c 'fundle install'
 
 # Install vscode extensions
 code --install-extension EditorConfig.EditorConfig
-code --install-extension nepaul.editorconfiggenerator
 code --install-extension bsides.Theme-Base16-Eighties
 code --install-extension robertohuertasm.vscode-icons
 code --install-extension christian-kohler.path-intellisense
 code --install-extension formulahendry.auto-rename-tag
-code --install-extension spywhere.guides
-code --install-extension wmaurer.vscode-jumpy
 code --install-extension dzannotti.vscode-babel-coloring
+code --install-extension lukehoban.go
 
-# Set macOS preferences
-# We will run this last because this will reload the shell
 if [[ $OSTYPE =~ ^darwin ]]; then
+   # Allow apps from unindentifeid developers
+  sudo spctl --master-disable
+
+ # docker-machine-driver-xhyve need root owner and uid
+  sudo chown root:wheel $(brew --prefix)/opt/docker-machine-driver-xhyve/bin/docker-machine-driver-xhyve
+  sudo chmod u+s $(brew --prefix)/opt/docker-machine-driver-xhyve/bin/docker-machine-driver-xhyve
+
+  # Set macOS preferences
+  # We will run this last because this will reload the shell
   source mac.settings.sh
 fi
-
-# Allow apps from unindentifeid developers
-sudo spctl --master-disable
-
