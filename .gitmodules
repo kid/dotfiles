@@ -1,0 +1,3 @@
+[submodule "stows/base16/.config/base16-shell"]
+	path = stows/base16/.config/base16-shell
+	url = https://github.com/chriskempson/base16-shell.git
