@@ -1,1 +1,3 @@
 *.swp
+stows/vscode/Library/Application Support/Code/
+!stows/vscode/Library/Application Support/Code/settings.json
