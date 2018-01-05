@@ -28,6 +28,10 @@ brew 'findutils'
 brew 'bash'
 brew 'bash-completion'
 
+# Install `kr` dependencies
+brew 'go'
+brew 'rust'
+
 # Install everything else
 brew 'ack'
 brew 'asdf'
@@ -52,24 +56,23 @@ brew 'tree'
 brew 'vim'
 brew 'watchman'
 brew 'wget'
-brew 'yarn'
 
 # Apps
 cask '1password'
 cask 'docker'
 cask 'dropbox'
 cask 'google-chrome'
-cask 'google-drive'
+cask 'google-backup-and-sync'
 cask 'iterm2'
 cask 'keybase'
 cask 'slack'
-cask 'skype'
+# cask 'skype'
 cask 'vagrant'
 cask 'virtualbox'
 cask 'virtualbox-extension-pack'
 cask 'visual-studio-code'
 cask 'vlc'
-cask 'vmware-fusion'
+# cask 'vmware-fusion'
 
 # fonts
 cask 'font-inconsolata-nerd-font'
