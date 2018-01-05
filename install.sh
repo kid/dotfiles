@@ -30,22 +30,6 @@ if ! gpg --list-keys D03B70DA66DF1DEA > /dev/null 2>&1; then
   keybase pgp export -q D03B70DA66DF1DEA --secret | gpg --allow-secret-key-import --import
 fi
 
-# Install or update nvm
-if [ -f "$HOME/.nvm/nvm.sh" ]; then
-  echo "Upgrading nvm..."
-  export NVM_DIR="$HOME/.nvm" && (
-    cd "$NVM_DIR"
-    git fetch origin
-    git checkout `git describe --abbrev=0 --tags --match "v[0-9]*" origin`
-  ) && . "$NVM_DIR/nvm.sh"
-else
-  echo "Installing nvm..."
-  export NVM_DIR="$HOME/.nvm" && (
-    git clone https://github.com/creationix/nvm.git "$NVM_DIR"
-    cd "$NVM_DIR"
-    git checkout `git describe --abbrev=0 --tags --match "v[0-9]*" origin`
-  ) && . "$NVM_DIR/nvm.sh"
-fi
 
 # Install all config files
 for item in `ls stows`
