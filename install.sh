@@ -2,13 +2,21 @@
 
 set -e
 
+mkdir -p ~/.bin
+mkdir -p ~/Code/go/bin
+
 # Install Homebrew
 if [[ $OSTYPE =~ ^darwin ]]; then
+  # Allow apps from unindentifeid developers
+  sudo spctl --master-disable
+
   if ! [ -x "$(command -v brew)" ]; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   else
     brew update
   fi
+
+  brew analytics off
 
   # Install all our dependencies with bundle (See Brewfile)
   brew tap homebrew/bundle
@@ -57,12 +65,9 @@ code --install-extension dzannotti.vscode-babel-coloring
 code --install-extension lukehoban.go
 
 if [[ $OSTYPE =~ ^darwin ]]; then
-   # Allow apps from unindentifeid developers
-  sudo spctl --master-disable
-
- # docker-machine-driver-xhyve need root owner and uid
-  sudo chown root:wheel $(brew --prefix)/opt/docker-machine-driver-xhyve/bin/docker-machine-driver-xhyve
-  sudo chmod u+s $(brew --prefix)/opt/docker-machine-driver-xhyve/bin/docker-machine-driver-xhyve
+  # docker-machine-driver-xhyve need root owner and uid
+  # sudo chown root:wheel $(brew --prefix)/opt/docker-machine-driver-xhyve/bin/docker-machine-driver-xhyve
+  # sudo chmod u+s $(brew --prefix)/opt/docker-machine-driver-xhyve/bin/docker-machine-driver-xhyve
 
   # Set macOS preferences
   # We will run this last because this will reload the shell
