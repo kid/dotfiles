@@ -34,9 +34,9 @@
   autosquash = true
 [rerere]
   enabled = true
-[commit]
-  gpgsign = true
 [diff]
   compactionHeuristic = 1
 [transfer]
   fsckobjects = true
+[hub]
+  host = github.services.mckinseywave.com
