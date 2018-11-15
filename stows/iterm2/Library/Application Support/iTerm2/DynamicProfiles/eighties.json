@@ -7,9 +7,9 @@
       "Command": "\/usr\/local\/bin\/fish",
       "Columns": 140,
       "Rows": 25,
-      "Normal Font": "InconsolataForPowerlineNerdFontCM-Medium 14",
+      "Normal Font" : "HackNerdFontComplete-Regular 12",
       "Use Non-ASCII Font": false,
-      "Transparency": 0.0735160872781065,
+      "Transparency": 0,
       "Only The Default BG Color Uses Transparency": true,
       "Use Bright Bold": false,
       "Ansi 0 Color": {
