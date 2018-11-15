@@ -24,11 +24,11 @@ if [[ $OSTYPE =~ ^darwin ]]; then
 fi
 
 # Import GPG key from keybase
-if ! gpg --list-keys D03B70DA66DF1DEA > /dev/null 2>&1; then
-  keybase login
-  keybase pgp export -q D03B70DA66DF1DEA | gpg --import
-  keybase pgp export -q D03B70DA66DF1DEA --secret | gpg --allow-secret-key-import --import
-fi
+# if ! gpg --list-keys D03B70DA66DF1DEA > /dev/null 2>&1; then
+#   keybase login
+#   keybase pgp export -q D03B70DA66DF1DEA | gpg --import
+#   keybase pgp export -q D03B70DA66DF1DEA --secret | gpg --allow-secret-key-import --import
+# fi
 
 
 # Install all config files
