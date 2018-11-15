@@ -32,9 +32,9 @@ fi
 
 
 # Install all config files
-for item in `ls stows`
+for item in stows/*
 do
-  stow --ignore='\.swp$' --dir=stows --target=$HOME $item
+  stow --ignore='\.swp$' --dir=stows --target="$HOME" "${item#stows/}"
 done
 
 # Install fish plugins
