@@ -1,41 +1,90 @@
-if &shell =~# 'fish$'
-  set shell=sh
-endif
-
+" Pluggins: {{{
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    \ 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vimi'
 
-  silent! pacaur -S --noconfirm --noedit --needed editorconfig-core-c
-
-  autocmd VimEnter * PlugInstall | source $MYVIMRC
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 call plug#begin()
 
+" Essentials: {{{
 Plug 'chriskempson/base16-vim'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
+
 Plug 'tpope/vim-commentary'
-Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-projectionist'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-surround'
+
+Plug 'jiangmiao/auto-pairs'
+" Plug 'wincent/terminus'
+" }}m
+
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
+
+Plug 'Yggdroot/indentLine'
+
+" Lazy load nerdtree
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
+"
+" " Lazy load TagBar
+Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
+"
+"
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
-Plug '/usr/local/opt/fzf'
-Plug 'junegunn/fzf.vim'
-Plug 'w0rp/ale'
+
+Plug 'roxma/nvim-yarp'
+if !has('nvim')
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
+Plug 'ncm2/ncm2'
+Plug 'ncm2/ncm2-go'
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-tmux'
+Plug 'ncm2/ncm2-path'
+Plug 'ncm2/ncm2-syntax' | Plug 'Shougo/neco-syntax'
+Plug 'ncm2/ncm2-neoinclude' | Plug 'Shougo/neoinclude.vim'
+
+Plug 'autozimu/LanguageClient-neovim', {
+  \ 'branch': 'next',
+  \ 'do': 'bash install.sh',
+  \ }
+let g:LanguageClient_serverCommands = {
+  \ 'go': ['go-langserver'],
+  \ 'rust': ['rls'],
+  \ }
+" Plug 'ervandew/supertab'
+" if has('nvim')
+"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" else
+"   Plug 'Shougo/deoplete.nvim'
+"   Plug 'roxma/nvim-yarp'
+"   Plug 'roxma/vim-hug-neovim-rpc'
+" endif
+" Plug 'Shougo/neosnippet.vim'
+" Plug 'Shougo/neosnippet-snippets'
+" Plug 'zchee/deoplete-go', { 'do': 'make'}
+" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+" Plug 'w0rp/ale'
 Plug 'dag/vim-fish'
 Plug 'fatih/vim-go'
-Plug 'hashivim/vim-consul'
-Plug 'hashivim/vim-nomadproject'
-Plug 'hashivim/vim-packer'
-Plug 'hashivim/vim-terraform'
-Plug 'hashivim/vim-vagrant'
-Plug 'hashivim/vim-vaultproject'
-Plug 'pearofducks/ansible-vim'
+" Plug 'hashivim/vim-consul'
+" Plug 'hashivim/vim-nomadproject'
+" Plug 'hashivim/vim-packer'
+" Plug 'hashivim/vim-terraform'
+" Plug 'hashivim/vim-vagrant'
+" Plug 'hashivim/vim-vaultproject'
+" Plug 'pearofducks/ansible-vim'
 
 " Plug 'Shougo/deoplete.nvim'
 " Plug 'roxma/nvim-yarp'
@@ -43,78 +92,71 @@ Plug 'pearofducks/ansible-vim'
 " Plug 'fishbullet/deoplete-ruby'
 
 call plug#end()
+" }}}
 
-set t_Co=256
+" set t_Co=256
 set mouse=a
-set ttymouse=xterm2
-set colorcolumn=100
-set relativenumber
-set cursorline
-set hlsearch
+if !has('nvim')
+  set ttymouse=xterm2
+endif
+
+set hidden
+"
+" Use both relative and absolume numbers
 set number
+set relativenumber
+" 
+" set hlsearch
 set expandtab
-set ts=2
-set sw=2
+set tabstop=2
+set shiftwidth=2
+
+" Always show the sign column to avoid jumps
+set signcolumn=yes
 
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+,eol:¬
 set list
 
-" let base16colorspace=256  " Access colors present in 256 colorspace
-if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
-  source ~/.vimrc_background
-endif
-
-" vim-airline configuration
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#ale#enabled = 1
-
-" Autocompletion
-let g:deoplete#enable_at_startup = 1
-
-" vim-go configuration
-let g:go_fmt_command = "goimports"
-
-" ALE Config
-let g:ale_lint_on_text_changed = 0
-let g:ale_open_list = 1
-let g:ale_completion_enabled = 1
-let g:ale_sign_column_always = 1
-
-let g:ale_sign_info = "◉""
-let g:ale_sign_error = "◉""
-let g:ale_sign_warning = "◉""
-
-let g:ale_echo_msg_info_str = 'I'
-let g:ale_echo_msg_error_str = 'E'
-let g:ale_echo_msg_warning_str = 'W'
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-
-highlight ALEInfoSign ctermfg=20 ctermbg=18
-highlight ALEErrorSign ctermfg=9 ctermbg=18
-highlight ALEWarningSign ctermfg=16 ctermbg=18
-
-highlight ALEInfo cterm=underline ctermfg=none ctermbg=none
-highlight ALEError cterm=underline ctermfg=none ctermbg=none
-highlight ALEWarning cterm=underline ctermfg=none ctermbg=none
-
-" Bindings
-
-imap jk <Esc>
-imap kj <Esc>
-
-map <C-n> :NERDTreeToggle<CR>
-
-" Switch between the last two files
-nnoremap <Leader><Leader> <C-^>
-
-" Get off my lawn
-nnoremap <Left> :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>
+" Try to reuse windows/tabs when switching buffers
+set switchbuf=usetab
 
 " sudo write :)
-command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
+if !exists(":W")
+  command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
+endif
+
+" Enable cursorline and colorcolumn, but only on active buffer
+let colorcolumn_blacklist = ['help']
+autocmd BufEnter * setlocal cursorline | if index(colorcolumn_blacklist, &ft) < 0 | setlocal colorcolumn=100
+autocmd BufLeave * setlocal nocursorline | setlocal colorcolumn=0
+
+set autowrite
+set autoread
+
+let g:go_def_mapping_enabled = 0
+
+" Plugin key-mappings.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+" imap <expr><TAB>
+"  \ pumvisible() ? "\<C-n>" :
+"  \ neosnippet#expandable_or_jumpable() ?
+"  \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+" smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+"   \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" " For conceal markers.
+" if has('conceal')
+"   set conceallevel=2 concealcursor=niv
+" endif
+
+autocmd BufEnter * call ncm2#enable_for_buffer()
+
+" IMPORTANTE: :help Ncm2PopupOpen for more information
+set completeopt=noinsert,menuone,noselect
