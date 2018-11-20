@@ -133,6 +133,9 @@ set list
 " Try to reuse windows/tabs when switching buffers
 set switchbuf=usetab
 
+" Don't show mode in command line, we have airline already
+set noshowmode
+
 " sudo write :)
 if !exists(":W")
   command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
