@@ -146,6 +146,11 @@ let colorcolumn_blacklist = ['help']
 autocmd BufEnter * setlocal cursorline | if index(colorcolumn_blacklist, &ft) < 0 | setlocal colorcolumn=100
 autocmd BufLeave * setlocal nocursorline | setlocal colorcolumn=0
 
+" Disable line numbers in terminal for FZF
+if has('nvim')
+  autocmd TermOpen * setlocal nonumber nornu
+end
+
 set autowrite
 set autoread
 
