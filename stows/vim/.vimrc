@@ -19,9 +19,12 @@ Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 
+Plug 'sheerun/vim-polyglot'
 Plug 'jiangmiao/auto-pairs'
 " Plug 'wincent/terminus'
 " }}m
+
+" Better language packs
 
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
@@ -58,10 +61,6 @@ Plug 'autozimu/LanguageClient-neovim', {
   \ 'branch': 'next',
   \ 'do': 'bash install.sh',
   \ }
-let g:LanguageClient_serverCommands = {
-  \ 'go': ['go-langserver'],
-  \ 'rust': ['rls'],
-  \ }
 " Plug 'ervandew/supertab'
 " if has('nvim')
 "   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -70,14 +69,24 @@ let g:LanguageClient_serverCommands = {
 "   Plug 'roxma/nvim-yarp'
 "   Plug 'roxma/vim-hug-neovim-rpc'
 " endif
-" Plug 'Shougo/neosnippet.vim'
-" Plug 'Shougo/neosnippet-snippets'
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
 " Plug 'zchee/deoplete-go', { 'do': 'make'}
 " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " Plug 'w0rp/ale'
+
+" Languagespecifics: {{{
+
+Plug 'rust/rust.vim'
 Plug 'dag/vim-fish'
 Plug 'fatih/vim-go'
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-rbenv'
+Plug 'TheLonelyGhost/vim-inspec'
+
+" }}}
+
 " Plug 'hashivim/vim-consul'
 " Plug 'hashivim/vim-nomadproject'
 " Plug 'hashivim/vim-packer'
@@ -90,6 +99,8 @@ Plug 'fatih/vim-go'
 " Plug 'roxma/nvim-yarp'
 " Plug 'roxma/vim-hug-neovim-rpc'
 " Plug 'fishbullet/deoplete-ruby'
+
+Plug 'neomake/neomake'
 
 call plug#end()
 " }}}
@@ -136,27 +147,5 @@ set autoread
 
 let g:go_def_mapping_enabled = 0
 
-" Plugin key-mappings.
-" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-smap <C-k> <Plug>(neosnippet_expand_or_jump)
-xmap <C-k> <Plug>(neosnippet_expand_target)
-
-" SuperTab like snippets behavior.
-" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-" imap <expr><TAB>
-"  \ pumvisible() ? "\<C-n>" :
-"  \ neosnippet#expandable_or_jumpable() ?
-"  \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-" smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-"   \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
-" " For conceal markers.
-" if has('conceal')
-"   set conceallevel=2 concealcursor=niv
-" endif
-
-autocmd BufEnter * call ncm2#enable_for_buffer()
-
-" IMPORTANTE: :help Ncm2PopupOpen for more information
-set completeopt=noinsert,menuone,noselect
+let g:python_host_prog = '/usr/local/bin/python'
+let g:python3_host_prog = '/usr/local/bin/python3'

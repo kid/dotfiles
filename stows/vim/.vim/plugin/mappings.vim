@@ -16,7 +16,8 @@ nnoremap <Leader>P "+P
 " Ctrl-Tab for cycling through buffers
 nnoremap <M-Tab> :bnext<CR>
 
-map <C-n> :NERDTreeToggle<CR>
+nnoremap <C-t> :TagbarToggle<CR>
+nnoremap <C-n> :NERDTreeToggle<CR>
 
 " Split navigation
 nnoremap <C-h> <C-w>h
@@ -34,6 +35,31 @@ nmap <Leader>r :History:<CR>
 imap jk <Esc>
 
 
-imap <expr> <tab>   pumvisible() ? "\<c-n>" : "\<tab>"
-imap <expr> <s-tab> pumvisible() ? "\<c-p>" : "\<tab>"
-imap <expr> <cr>    pumvisible() ? deoplete#close_popup() : "\<cr>"
+" imap <expr> <tab>   pumvisible() ? "\<c-n>" : "\<tab>"
+" imap <expr> <s-tab> pumvisible() ? "\<c-p>" : "\<tab>"
+" imap <expr> <cr>    pumvisible() ? deoplete#close_popup() : "\<cr>"
+
+"
+" Neosnippet: {{{
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+imap <expr><TAB> pumvisible() 
+  \ ? "\<C-n>"
+  \ : neosnippet#expandable_or_jumpable()
+  \   ? "\<Plug>(neosnippet_expand_or_jump)" 
+  \   : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable()
+  \ ? "\<Plug>(neosnippet_expand_or_jump)" 
+  \ : "\<TAB>"
+" }}}
+"
+" CTRL-C doesn't trigger the InsertLeave autocmd . map to <ESC> instead.
+inoremap <C-c> <ESC>
+
+
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
