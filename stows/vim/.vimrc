@@ -158,3 +158,5 @@ let g:go_def_mapping_enabled = 0
 
 let g:python_host_prog = '/usr/local/bin/python'
 let g:python3_host_prog = '/usr/local/bin/python3'
+
+autocmd VimEnter * highlight Comment gui=italic
