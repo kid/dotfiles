@@ -15,9 +15,11 @@ nnoremap <Leader>P "+P
 
 " Ctrl-Tab for cycling through buffers
 nnoremap <M-Tab> :bnext<CR>
+nnoremap <C-n> :bnext<CR>
+nnoremap <C-p> :bprev<CR>
 
 nnoremap <C-t> :TagbarToggle<CR>
-nnoremap <C-n> :NERDTreeToggle<CR>
+nnoremap <C-b> :NERDTreeToggle<CR>
 
 " Split navigation
 nnoremap <C-h> <C-w>h
