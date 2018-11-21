@@ -13,6 +13,7 @@ Plug 'chriskempson/base16-vim'
 Plug 'editorconfig/editorconfig-vim'
 
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-projectionist'
@@ -117,7 +118,7 @@ set hidden
 " Use both relative and absolume numbers
 set number
 set relativenumber
-" 
+
 " set hlsearch
 set expandtab
 set tabstop=2
@@ -133,6 +134,9 @@ set list
 " Try to reuse windows/tabs when switching buffers
 set switchbuf=usetab
 
+" faster CursorHold updates
+set updatetime=500
+"
 " Don't show mode in command line, we have airline already
 set noshowmode
 
