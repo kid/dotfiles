@@ -1,8 +1,3 @@
-if [ ! -d ~/.zplugin/bin ] ; then
-  mkdir -p ~/.zplugin && git clone https://github.com/zdharma/zplugin.git ~/.zplugin/bin
-fi
-
-
 DEFAULT_USER='kid'
 POWERLEVEL9K_MODE='nerdfont-complete'
 
@@ -119,5 +114,5 @@ else
   compinit -C;
 fi
 
-. $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
+[ -f $HOME/.asdf/asdf.sh ] && . $HOME/.asdf/asdf.sh
+[ -f $HOME/.asdf/completions/asdf.bash ] &&. $HOME/.asdf/completions/asdf.bash

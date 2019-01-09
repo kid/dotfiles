@@ -26,12 +26,16 @@ case $os in
       diff-so-fancy \
       fd-find \
       gnupg \
+      go \
       neovim \
       node \
+      python3 \
       stow \
       tmux \
       yarn \
       zsh
+    sudo python3 -m ensurepip
+    sudo pip3 install neovim
     ;;
   *)
     echo "ERROR: unsupported OS: $os"
@@ -68,6 +72,6 @@ if [ "$os" = "Darwin" ]; then
   . mac.settings.sh
 fi
 
-nvim "+PlugUpdate!" "+qa"
+nvim "+UpdateRemotePlugins" "+PlugUpdate!" "+qa"
 
 exec zsh
