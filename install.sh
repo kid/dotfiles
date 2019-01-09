@@ -21,11 +21,16 @@ case $os in
     brew bundle
     ;;
   "FreeBSD"*)
-    sudo pkg install \
+    sudo pkg install --yes \
       bash \
+      diff-so-fancy \
+      fd-find \
+      gnupg \
       neovim \
+      node \
       stow \
       tmux \
+      yarn \
       zsh
     ;;
   *)
@@ -35,6 +40,7 @@ case $os in
 esac
 
 mkdir -p ~/.bin
+mkdir -p ~/.cargo/bin
 mkdir -p ~/Code/go/bin
 
 # Import GPG key from keybase
@@ -44,14 +50,13 @@ mkdir -p ~/Code/go/bin
 #   keybase pgp export -q D03B70DA66DF1DEA --secret | gpg --allow-secret-key-import --import
 # fi
 
-
 # Install all config files
 for item in stows/*
 do
   stow --ignore='\.swp$' --dir=stows --target="$HOME" "${item#stows/}"
 done
 
-"$HOME/.fzf/install.sh" --completion ----key-bindings --no-update-rc --no-bash --no-fish
+"$HOME/.fzf/install" --completion --key-bindings --no-update-rc --no-bash --no-fish
 
 if [ "$os" = "Darwin" ]; then
   # docker-machine-driver-xhyve need root owner and uid
@@ -62,3 +67,7 @@ if [ "$os" = "Darwin" ]; then
   # We will run this last because this will reload the shell
   . mac.settings.sh
 fi
+
+nvim "+PlugUpdate!" "+qa"
+
+exec zsh

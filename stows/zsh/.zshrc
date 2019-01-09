@@ -73,7 +73,6 @@ else
 fi
 
 alias vim='nvim'
-alias git='hub'
 
 export GOPATH="$HOME/Code/go"
 export PATH="$HOME/.bin:$GOPATH/bin:$HOME.rbenv/bin:$PATH"
