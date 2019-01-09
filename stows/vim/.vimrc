@@ -1,7 +1,7 @@
 " Pluggins: {{{
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vimi'
+    \ 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
@@ -23,7 +23,6 @@ Plug 'tpope/vim-surround'
 
 Plug 'easymotion/vim-easymotion'
 Plug 'jiangmiao/auto-pairs'
-Plug 'ludovicchabant/vim-gutentags'
 Plug 'skwp/greplace.vim'
 
 Plug '/usr/local/opt/fzf'
