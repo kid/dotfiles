@@ -1,3 +1,3 @@
-call neomake#configure#automake('nrwi', 500)
-" let g:neomake_open_list = 2
-
+if exists("neomake#configure#automake")
+  call neomake#configure#automake('nrwi', 500)
+endif
