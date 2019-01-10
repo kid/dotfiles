@@ -32,8 +32,10 @@ case $os in
       python3 \
       stow \
       tmux \
+      wget \
       yarn \
       zsh
+
     sudo python3 -m ensurepip
     sudo pip3 install neovim
 
@@ -74,9 +76,6 @@ if [ "$os" = "Darwin" ]; then
   # We will run this last because this will reload the shell
   . mac.settings.sh
 fi
-
-# shellcheck disable=SC1090
-. "$HOME/.zprofile"
 
 nvim "+UpdateRemotePlugins" "+PlugUpdate!" "+qa"
 
