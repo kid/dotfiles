@@ -2,7 +2,7 @@
 
 set -e
 
-os=$(uname -s)
+os="$(uname -s)"
 case $os in
   "Darwin"*) 
     # Allow apps from unindentifeid developers
@@ -36,6 +36,9 @@ case $os in
       zsh
     sudo python3 -m ensurepip
     sudo pip3 install neovim
+
+    # shellcheck disable=SC2006
+    sudo chsh -s "`command -v zsh`" "$USER"
     ;;
   *)
     echo "ERROR: unsupported OS: $os"
@@ -71,6 +74,9 @@ if [ "$os" = "Darwin" ]; then
   # We will run this last because this will reload the shell
   . mac.settings.sh
 fi
+
+# shellcheck disable=SC1090
+. "$HOME/.zprofile"
 
 nvim "+UpdateRemotePlugins" "+PlugUpdate!" "+qa"
 
