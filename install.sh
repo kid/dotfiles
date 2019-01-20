@@ -79,5 +79,6 @@ if [ "$os" = "Darwin" ]; then
 fi
 
 nvim "+UpdateRemotePlugins" "+PlugUpdate!" "+qa"
+. ~/.config/base16-shell-hooks/update-tmuxline.sh
 
 exec zsh
