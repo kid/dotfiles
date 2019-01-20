@@ -30,6 +30,7 @@ case $os in
       hs-shellcheck \
       neovim \
       node \
+      npm \
       python3 \
       stow \
       tmux \
@@ -38,8 +39,10 @@ case $os in
       yarn \
       zsh
 
+    # This should probabaly be moved outside of the switch
     sudo python3 -m ensurepip
     sudo pip3 install neovim
+    sudo yarn global add neovim
 
     # shellcheck disable=SC2006
     sudo chsh -s "`command -v zsh`" "$USER"
