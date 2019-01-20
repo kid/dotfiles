@@ -1,4 +1,5 @@
 DEFAULT_USER='kid'
+POWERLEVEL9K_IGNORE_TERM_COLORS=true
 POWERLEVEL9K_MODE='nerdfont-complete'
 
 source ~/.zplugin/bin/zplugin.zsh
