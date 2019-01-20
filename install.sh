@@ -27,6 +27,7 @@ case $os in
       fd-find \
       gnupg \
       go \
+      hs-shellcheck \
       neovim \
       node \
       python3 \
