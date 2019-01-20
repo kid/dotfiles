@@ -33,6 +33,7 @@ case $os in
       python3 \
       stow \
       tmux \
+      universal-ctags \
       wget \
       yarn \
       zsh
