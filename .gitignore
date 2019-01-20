@@ -1,5 +1,6 @@
 tags
 *.swp
+stows/vim/.vim/.netrwhist
 stows/vim/.vim/autoload/plug.vim
 stows/vim/.vim/plugged/
 stows/zsh/.zplugin/
