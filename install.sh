@@ -27,17 +27,22 @@ case $os in
       fd-find \
       gnupg \
       go \
+      hs-shellcheck \
       neovim \
       node \
+      npm \
       python3 \
       stow \
       tmux \
+      universal-ctags \
       wget \
       yarn \
       zsh
 
+    # This should probabaly be moved outside of the switch
     sudo python3 -m ensurepip
     sudo pip3 install neovim
+    sudo yarn global add neovim
 
     # shellcheck disable=SC2006
     sudo chsh -s "`command -v zsh`" "$USER"
@@ -78,5 +83,6 @@ if [ "$os" = "Darwin" ]; then
 fi
 
 nvim "+UpdateRemotePlugins" "+PlugUpdate!" "+qa"
+. ~/.config/base16-shell-hooks/update-tmuxline.sh
 
 exec zsh
