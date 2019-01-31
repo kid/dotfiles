@@ -82,22 +82,6 @@ export FZF_ALT_C_COMMAND="fd -t d . $HOME"
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# export FZF_COMPLETION_TRIGGER=''
-# bindkey '^T' fzf-completion
-# bindkey '^I' $fzf_default_completion
-
-
-# if [ $(date +'%j') != $updated_at ]; then
-#   compinit -i
-# else
-#   compinit -C -i
-# fi
-
-# zmodload -i zsh/complist
-
-# ZSH_THEME="bullet-train"
-# ZSH_THEME="gruvbox"
-
 ZSH_THEME="p9k"
 
 autoload -z edit-command-line
