@@ -1,10 +1,12 @@
 {
-  "coc.preferences.diagnostic.enable": false,
+  "coc.preferences.diagnostic.enable": true,
   "coc.preferences.timeout": 5000,
   "coc.preferences.diagnostic.errorSign": "◉",
   "coc.preferences.diagnostic.infoSign": "◉",
   "coc.source.omni.enable": true,
   "coc.source.omni.filetypes": ["terraform", "tf"],
+  "typescript.suggest.enabled": false,
+  "javascript.suggest.enabled": false,
   "languageserver": {
     "golang": {
       "command": "bingo",
