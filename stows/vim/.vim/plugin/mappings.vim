@@ -3,6 +3,14 @@
 
 nnoremap <Leader>q :Bd<CR>
 
+" Move to line
+map <Leader><Leader>L <Plug>(easymotion-bd-jk)
+nmap <Leader><Leader>L <Plug>(easymotion-overwin-line)
+
+" Move to word
+map  <Leader><Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader><Leader>w <Plug>(easymotion-overwin-w)
+
 " Copy til end if one, like C and D
 nnoremap Y y$
 
