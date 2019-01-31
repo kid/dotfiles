@@ -72,6 +72,8 @@ Plug 'hashivim/vim-vaultproject'
 Plug 'pearofducks/ansible-vim'
 Plug 'juliosueiras/vim-terraform-completion'
 Plug 'cespare/vim-toml' 
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 
 " }}}
 
