@@ -1,6 +1,9 @@
 DEFAULT_USER='kid'
 POWERLEVEL9K_IGNORE_TERM_COLORS=true
 POWERLEVEL9K_MODE='nerdfont-complete'
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time)
+POWERLEVEL9K_TIME_FOREGROUND='white'
+POWERLEVEL9K_TIME_BACKGROUND='transparent'
 
 source ~/.zplugin/bin/zplugin.zsh
 
