@@ -11,6 +11,7 @@ setopt hist_ignore_all_dups # remove older duplicate entries from history
 setopt hist_reduce_blanks # remove superfluous blanks from history items
 setopt inc_append_history # save history entries as soon as they are entered
 setopt share_history # share history between different instances of the shell
+setopt histignorespace # don't save commands that starts with a space
 
 setopt auto_list # automatically list choices on ambiguous completion
 setopt auto_menu # automatically use menu completion
