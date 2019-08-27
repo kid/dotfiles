@@ -81,7 +81,7 @@ else
   alias la='ls --color -lha'
 fi
 
-alias vim='nvim'
+alias vim='nvim -u ~/.dotfiles/config.vim'
 
 export EDITOR='nvim'
 
