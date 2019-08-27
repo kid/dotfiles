@@ -21,6 +21,7 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 " }}}
 
+Plug 'qpkorr/vim-bufkill'
 Plug 'easymotion/vim-easymotion'
 Plug 'jiangmiao/auto-pairs'
 Plug 'skwp/greplace.vim'
@@ -59,9 +60,9 @@ Plug 'Shougo/neco-vim'
 Plug 'elzr/vim-json'
 Plug 'rust-lang/rust.vim'
 Plug 'dag/vim-fish'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'vim-ruby/vim-ruby'
-Plug 'tpope/vim-rbenv'
+Plug 'fatih/vim-go' ", { 'do': ':GoUpdateBinaries' }
+" Plug 'vim-ruby/vim-ruby'
+" Plug 'tpope/vim-rbenv'
 Plug 'TheLonelyGhost/vim-inspec'
 Plug 'hashivim/vim-consul'
 Plug 'hashivim/vim-nomadproject'
@@ -69,15 +70,21 @@ Plug 'hashivim/vim-packer'
 Plug 'hashivim/vim-terraform'
 Plug 'hashivim/vim-vagrant'
 Plug 'hashivim/vim-vaultproject'
+" Plug 'b4b4r07/vim-hcl'
 Plug 'pearofducks/ansible-vim'
-Plug 'juliosueiras/vim-terraform-completion'
+" Plug 'juliosueiras/vim-terraform-completion'
 Plug 'cespare/vim-toml' 
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+Plug 'rhysd/vim-github-actions'
+Plug 'derekwyatt/vim-scala'
+
+Plug 'szymonmaszke/vimpyter', { 'on': ['VimpyterStartJupyter', 'VimpyterStartJupyter', 'VimpyterInsertPythonBlock'] }
 
 " }}}
 
-Plug 'neoclide/coc.nvim', { 'tag': '*', 'do': { -> coc#util#install() } }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', { 'tag': '*', 'do': { -> coc#util#install() } }
 
 Plug 'neomake/neomake'
 
@@ -100,6 +107,8 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 
+set lazyredraw
+"
 " Always show the sign column to avoid jumps
 set signcolumn=yes
 
@@ -166,8 +175,5 @@ end
 
 set autowrite
 set autoread
-
-let g:python_host_prog = '/usr/local/bin/python'
-let g:python3_host_prog = '/usr/local/bin/python3'
 
 autocmd VimEnter * highlight Comment gui=italic

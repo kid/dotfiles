@@ -1,24 +1,23 @@
 {
-  "coc.preferences.diagnostic.enable": true,
-  "coc.preferences.timeout": 5000,
-  "coc.preferences.diagnostic.errorSign": "◉",
-  "coc.preferences.diagnostic.infoSign": "◉",
   "coc.source.omni.enable": true,
   "coc.source.omni.filetypes": ["terraform", "tf"],
-  "typescript.suggest.enabled": false,
   "javascript.suggest.enabled": false,
+  "typescript.suggest.enabled": false,
+  "python.jediEnabled": false,
   "languageserver": {
     "golang": {
-      "command": "bingo",
-      "args": ["-pprof", ":6060", "-logfile", "/tmp/bingo.log"],
-      "filetypes": ["go"],
-      "revealOutputChannelOn": "never",
-      "initializationOptions": {
-        "lintTool": "gometalinter",
-        "disableDiagnostics": true,
-        "diagnosticsStyle": "none",
-        "formatStyle": "goimports"
-      }
+      "command": "gopls",
+      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"]
+    },
+    "terraform": {
+      "command": "~/.bin/terraform-lsp",
+      "filetypes": ["terraform"]
+    },
+    "metals": {
+      "command": "metals-vim",
+      "rootPatterns": ["build.sbt"],
+      "filetypes": ["scala", "sbt"]
     }
   }
 }

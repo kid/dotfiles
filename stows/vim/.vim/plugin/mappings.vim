@@ -1,7 +1,10 @@
 " Switch between the last two files
 " nnoremap <Leader><Leader> <C-^>
 
-nnoremap <Leader>q :Bd<CR>
+nnoremap <Leader>q :BD<CR>
+
+" search selected text
+vnoremap // y/<C-R>"<CR>
 
 " Move to line
 map <Leader><Leader>L <Plug>(easymotion-bd-jk)
