@@ -27,3 +27,5 @@ path=(
   /usr/local/{bin,sbin}
   $path
 )
+
+export PATH="$HOME/.cargo/bin:$PATH"
