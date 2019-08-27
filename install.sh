@@ -82,6 +82,8 @@ if [ "$os" = "Darwin" ]; then
   . mac.settings.sh
 fi
 
+./stows/tmux/.tmux/plugins/tpm/scripts/install_plugins.sh
+
 nvim "+UpdateRemotePlugins" "+PlugUpdate!" "+qa"
 . ~/.config/base16-shell-hooks/update-tmuxline.sh
 
