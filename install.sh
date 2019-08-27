@@ -5,6 +5,9 @@ set -e
 os="$(uname -s)"
 case $os in
   "Darwin"*) 
+    xcode-select --install
+    sudo installer -pkg /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg -target /
+
     # Allow apps from unindentifeid developers
     sudo spctl --master-disable
 
