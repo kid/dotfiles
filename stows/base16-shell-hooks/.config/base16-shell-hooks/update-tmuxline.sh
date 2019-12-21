@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 if [ -n "$TMUX" ]; then
-  nvim +'TmuxlineSnapshot! ~/.vimrc_tmuxline' +qa
+  nvim -u ~/.dotfiles/config.vim -c 'TmuxlineSnapshot! ~/.vimrc_tmuxline | qa'
 else
-  tmux new-session "nvim +'TmuxlineSnapshot! ~/.vimrc_tmuxline' +qa"
+  tmux new-session "nvim -u ~/.dotfiles/config.vim -c 'TmuxlineSnapshot! ~/.vimrc_tmuxline | qa'"
 fi

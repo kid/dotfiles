@@ -87,7 +87,10 @@ fi
 
 ./stows/tmux/.tmux/plugins/tpm/scripts/install_plugins.sh
 
-nvim "+UpdateRemotePlugins" "+PlugUpdate!" "+qa"
+# nvim "+UpdateRemotePlugins" "+PlugUpdate!" "+qa"
+vim "CocInstall -sync coc-json coc-rls coc-snippets coc-git coc-lists | q"
 . ~/.config/base16-shell-hooks/update-tmuxline.sh
+
+nvim
 
 exec zsh

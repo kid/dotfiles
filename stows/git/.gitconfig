@@ -50,3 +50,5 @@
   host = github.services.mckinseywave.com
 [commit]
   gpgsign = true
+[diff "sopsdiffer"]
+	textconv = sops -d

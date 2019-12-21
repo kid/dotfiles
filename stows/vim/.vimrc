@@ -1,119 +1,121 @@
-" Pluggins: {{{
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+" Pluggins {{{
 
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+if &compatible
+  " Be iMproved
+  set nocompatible
 endif
 
-call plug#begin()
+" Required:
+set runtimepath+=~/.local/share/dein/repos/github.com/Shougo/dein.vim
 
-" Essentials: {{{
-Plug 'chriskempson/base16-vim'
-Plug 'editorconfig/editorconfig-vim'
 
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'
-Plug 'tpope/vim-projectionist'
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-surround'
-" }}}
+" Auto rebuild dein's cache
+let g:dein#auto_recache = 1
 
-Plug 'qpkorr/vim-bufkill'
-Plug 'easymotion/vim-easymotion'
-Plug 'jiangmiao/auto-pairs'
-Plug 'skwp/greplace.vim'
+" Required:
+if dein#load_state(expand('~/.local/share/dein'))
+  call dein#begin(expand('~/.local/share/dein'))
 
-Plug '~/.fzf'
-Plug 'junegunn/fzf.vim'
+  " Let dein manage dein
+  " Required:
+  call dein#add(expand('~/.local/share/dein/repos/github.com/Shougo/dein.vim'))
 
-Plug 'Yggdroot/indentLine'
+  if !has('nvim')
+    call dein#add('roxma/nvim-yarp')
+    call dein#add('roxma/vim-hug-neovim-rpc')
+  endif
 
-" Lazy load nerdtree
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
-"
-" " Lazy load TagBar
-Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
-"
-Plug 'airblade/vim-gitgutter'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'edkolev/tmuxline.vim'
-Plug 'ryanoasis/vim-devicons'
+  " Essentials
+  call dein#add('tpope/vim-commentary')
+  call dein#add('tpope/vim-fugitive')
+  call dein#add('tpope/vim-repeat')
+  call dein#add('tpope/vim-sensible')
+  call dein#add('tpope/vim-surround')
+  call dein#add('easymotion/vim-easymotion')
 
-" dependencies for deoplete/ncm2/neosnippet
-if !has('nvim')
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
+  " Better copy/pasting
+  call dein#add('svermeulen/vim-cutlass')
+  " call dein#add('svermeulen/vim-subversive')
+
+    " Autocompletion and diagnostics
+  " call dein#add('neoclide/coc.nvim', {'merge': 0, 'rev': 'release'})
+  call dein#add('neoclide/coc.nvim', {'merge': 0, 'build': 'yarn install --frozen-lockfile' })
+  call dein#add('honza/vim-snippets')
+  call dein#add('liuchengxu/vista.vim')
+
+  " Interface
+  call dein#add('gruvbox-community/gruvbox')
+  call dein#add('editorconfig/editorconfig-vim')
+  call dein#add('junegunn/fzf', { 'rtp': '~/.fzf' })
+  call dein#add('junegunn/fzf.vim')
+  call dein#add('vim-airline/vim-airline')
+  call dein#add('TaDaa/vimade')
+  call dein#add('tmux-plugins/vim-tmux-focus-events')
+  call dein#add('scrooloose/nerdtree')
+  call dein#add('Xuyuanp/nerdtree-git-plugin')
+  call dein#add('ryanoasis/vim-devicons')
+  call dein#add('qpkorr/vim-bufkill')
+  call dein#add('edkolev/tmuxline.vim')
+  call dein#add('christoomey/vim-tmux-navigator')
+  call dein#add('Yggdroot/indentLine')
+
+  " Language support
+  call dein#add('hashivim/vim-terraform')
+  call dein#add('fatih/vim-go')
+  call dein#add('rust-lang/rust.vim')
+  call dein#add('derekwyatt/vim-scala')
+  call dein#add('godlygeek/tabular')
+  call dein#add('Glench/Vim-Jinja2-Syntax')
+  call dein#add('pearofducks/ansible-vim')
+
+  call dein#add('neomake/neomake')
+
+  " Required:
+  call dein#end()
+  call dein#save_state()
 endif
 
-Plug 'Shougo/denite.nvim'
-Plug 'Shougo/neosnippet.vim'
-Plug 'Shougo/neosnippet-snippets'
+" Required:
+filetype plugin indent on
+syntax enable
 
-" Languagespecifics: {{{
-
-Plug 'Shougo/neco-vim'
-Plug 'elzr/vim-json'
-Plug 'rust-lang/rust.vim'
-Plug 'dag/vim-fish'
-Plug 'fatih/vim-go' ", { 'do': ':GoUpdateBinaries' }
-" Plug 'vim-ruby/vim-ruby'
-" Plug 'tpope/vim-rbenv'
-Plug 'TheLonelyGhost/vim-inspec'
-Plug 'hashivim/vim-consul'
-Plug 'hashivim/vim-nomadproject'
-Plug 'hashivim/vim-packer'
-Plug 'hashivim/vim-terraform'
-Plug 'hashivim/vim-vagrant'
-Plug 'hashivim/vim-vaultproject'
-" Plug 'b4b4r07/vim-hcl'
-Plug 'pearofducks/ansible-vim'
-" Plug 'juliosueiras/vim-terraform-completion'
-Plug 'cespare/vim-toml' 
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-Plug 'rhysd/vim-github-actions'
-Plug 'derekwyatt/vim-scala'
-
-Plug 'szymonmaszke/vimpyter', { 'on': ['VimpyterStartJupyter', 'VimpyterStartJupyter', 'VimpyterInsertPythonBlock'] }
-
-" }}}
-
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Plug 'neoclide/coc.nvim', { 'tag': '*', 'do': { -> coc#util#install() } }
-
-Plug 'neomake/neomake'
-
-call plug#end()
-" }}}
-
-set mouse=a
-if !has('nvim')
-  set ttymouse=xterm2
+if dein#check_install()
+  call dein#install()
 endif
+
+let g:python3_host_prog = expand('~/.pyenv/versions/neovim3/bin/python')
+
+" }}}
+
+" Basic config {{{
 
 set hidden
-"
+set lazyredraw
+
+" suppress the annoying 'match x of y', 'The only match' and 'Pattern not
+" found' messages
+set shortmess+=c
+
 " Use both relative and absolume numbers
 set number
 set relativenumber
 
-" set hlsearch
-set expandtab
-set tabstop=2
-set shiftwidth=2
-
-set lazyredraw
-"
-" Always show the sign column to avoid jumps
+set cursorline
 set signcolumn=yes
+set splitbelow
+set splitright
 
-" Except for fzf, nerdtree and tagbar
-autocmd FileType fzf,nerdtree,tagbar setlocal signcolumn=no
+" highlight matching pairs
+set showmatch
+
+" Try to reuse windows/tabs when switching buffers
+set switchbuf=usetab
+
+" faster CursorHold updates
+set updatetime=300
+"
+" Don't show mode in command line, we have airline already
+set noshowmode
 
 " Use the same symbols as TextMate for tabstops and EOLs
 if has('nvim')
@@ -121,59 +123,224 @@ if has('nvim')
   set list
 endif
 
-" Try to reuse windows/tabs when switching buffers
-set switchbuf=usetab
+if exists('+termguicolors')
+  let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
 
-" faster CursorHold updates
-set updatetime=500
-"
-" Don't show mode in command line, we have airline already
-set noshowmode
 
-" Disable annoying ins-completion-menu messages
-set shortmess+=c
+if has('nvim')
+  set inccommand=nosplit
+endif
+
+" }}}
+
+" Interface {{{
+
+set mouse=a
+if !has('nvim')
+  set ttymouse=xterm2
+endif
+
+colorscheme gruvbox
+set background=dark
+
+let g:vista_default_executive = 'coc'
+let g:airline#extensions#tabline#enabled = 1
+let g:tmuxline_powerline_separators = 0
+
+let NERDTreeMinimalUI = 1
+let NERDTreeStatusline = 'NERD'
+
+" Auto save all the things
+set autowriteall
+autocmd FocusLost * silent! wa
+
+" Toggle the cursorline in insert mode
+autocmd InsertEnter,InsertLeave * set cul!
+
+" [Buffers] Jump to the existing window if possible
+let g:fzf_buffers_jump = 1
+
+let g:fzf_files_options =
+  \ '--preview "bat --number --color always --italic-text always --paging never {}"'
+
+let g:vimade = {}
+let g:vimade.enablefocusfading = 1
+
+" keep quotations marks in json files
+let g:indentLine_setConceal = 0
+
+" }}}
+
+" Autocompletion {{{
+
+" Some servers have issues with backup files, see #649
+set nobackup
+set nowritebackup
+
+" }}}
+
+" Commands and Helpers {{{
 
 " sudo write :)
-if !exists(":W")
+if !exists(':W')
   command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 endif
 
-" close buffer without closing split
-if !exists(":Bd")
-  command Bd bp\|bd \#
-endif
-
-" Enable cursorline and colorcolumn, but only on active buffer
-let colorcolumn_blacklist = ['help']
-let cursorline_always = ['nerdtree']
-autocmd BufEnter * setlocal cursorline | if index(colorcolumn_blacklist, &ft) < 0 | setlocal colorcolumn=100
-autocmd BufLeave * setlocal nocursorline | setlocal colorcolumn=0
-
-fun! OnBufEnter()
-  setlocal cursorline
-
-  if &ft !~ 'nerdtree\|help'
-    setlocal colorcolumn=100
+" Prevent opening files in NERDTree's buffer
+function! FZFOpen(command_str)
+  if (expand('%') =~# 'NERD_tree' && winnr('$') > 1)
+    exe "normal! \<c-w>\<c-w>"
   endif
-endfun
+  exe 'normal! ' . a:command_str . "\<cr>"
+endfunction
 
-fun! OnBufLeave()
-  let cursorline_always = ['nerdtree']
-  if index(cursorline_always, &ft) < 0
-    set nocursorline
+au BufEnter * if bufname('#') =~ 'NERD_tree' && bufname('%') !~ 'NERD_tree' && winnr('$') > 1 | b# | exe "normal! \<c-w>\<c-w>" | :blast | endif
+
+" }}}
+
+" Mappings {{{
+
+imap jk <Esc>
+
+nnoremap <Leader>q :BD<CR>
+
+" search selected text
+vnoremap // y/<C-R>"<CR>
+
+nnoremap m d
+xnoremap m d
+
+nnoremap mm dd
+nnoremap M D
+
+" Copy til end if one, like C and D
+nnoremap Y y$
+
+" System copy paste
+nnoremap <Leader>y "+y
+nnoremap <Leader>Y "+y$
+vnoremap <Leader>y "+y
+
+nnoremap <Leader>p "+p
+nnoremap <Leader>P "+P
+vnoremap <Leader>p "+p
+
+" Ctrl-Tab for cycling through buffers
+nnoremap <M-Tab> :bnext<CR>
+nnoremap <C-n> :bnext<CR>
+nnoremap <C-p> :bprev<CR>
+
+nnoremap <C-t> :Vista!!<CR>
+nnoremap <C-s> :NERDTreeToggle<CR>
+
+" Move to line
+map <Leader><Leader>L <Plug>(easymotion-bd-jk)
+nmap <Leader><Leader>L <Plug>(easymotion-overwin-line)
+
+" Move to word
+map  <Leader><Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader><Leader>w <Plug>(easymotion-overwin-w)
+
+" nmap <Leader>f :GFiles -o<CR>
+nmap <Leader>f :call FZFOpen(':Files')<CR>
+nmap <Leader>F :call FZFOpen(':GFiles')<CR>
+nmap <Leader>b :call FZFOpen(':Buffers')<CR>
+nmap <Leader>c :call FZFOpen(':Commands')<CR>
+nmap <Leader>r :call FZFOpen(':History:')<CR>
+
+" inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+" inoremap <silent><expr> <TAB>
+"       \ pumvisible() ? "\<C-n>" :
+"       \ <SID>check_back_space() ? "\<TAB>" :
+"       \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+let g:coc_snippet_next = '<tab>'
+
+" Use <C-j> for jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<c-j>'
+
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<c-k>'
+
+imap <C-l> <Plug>(coc-snippets-expand)
+vmap <C-j> <Plug>(coc-snippets-select)
+imap <C-j> <Plug>(coc-snippets-expand-jump)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
   endif
-  set colorcolumn=0
-endfun
+endfunction
 
-autocmd BufEnter * call OnBufEnter()
-autocmd BufLeave * call OnBufLeave()
+" Highlight symbol under cursor on CursorHold
+" autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" Disable line numbers in terminal for FZF
-if has('nvim')
-  autocmd TermOpen * setlocal nonumber nornu
-end
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
 
-set autowrite
-set autoread
+" Remap for do codeAction of current line
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Fix autofix problem of current line
+nmap <leader>qf  <Plug>(coc-fix-current)
 
-autocmd VimEnter * highlight Comment gui=italic
+" nnoremap <silent> <space>y  :<C-u>CocList -A yank<cr>
+
+" s for substitute
+" nmap s <plug>(SubversiveSubstitute)
+" nmap ss <plug>(SubversiveSubstituteLine)
+" nmap S <plug>(SubversiveSubstituteToEndOfLine)
+
+" }}}
+
+" Filetype settings {{{
+
+" Use 2 spaces by default unless overriden
+set shiftwidth=2
+
+autocmd FileType fzf setlocal nonumber norelativenumber
+autocmd FileType gitcommit setlocal spell nofoldenable
+autocmd Filetype vim setlocal expandtab foldmethod=marker
+autocmd Filetype go setlocal tabstop=4
+
+" Don't insert comment when hitting 'o' from a comment
+autocmd FileType * setlocal formatoptions-=o
+
+" autocmd BufWritePre *.go :call LanguageClient#textDocument_formatting_sync()
+autocmd BufWritePre *.tf :TerraformFmt
+
+" }}}

@@ -31,3 +31,5 @@ ftpane() {
     tmux select-window -t "$target_window"
   fi
 }
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

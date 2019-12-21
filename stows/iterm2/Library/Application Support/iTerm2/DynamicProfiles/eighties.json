@@ -3,8 +3,6 @@
     {
       "Name": "Eighties",
       "Guid": "A879712F-6297-42E3-BFFD-9A5664D31470",
-      "Custom Command": "Yes",
-      "Command": "\/usr\/local\/bin\/fish",
       "Columns": 140,
       "Rows": 25,
       "Normal Font" : "HackNerdFontComplete-Regular 12",
@@ -92,6 +90,7 @@
         "Green Component": 0.9411764705882353,
         "Red Component": 0.9490196078431372
       },
+      "ASCII Ligatures" : false,
       "Background Color": {
         "Blue Component": 0.17647058823529413,
         "Green Component": 0.17647058823529413,
@@ -112,6 +111,7 @@
         "Green Component": 0.17647058823529413,
         "Red Component": 0.17647058823529413
       },
+      "Draw Powerline Glyphs": true,
       "Foreground Color": {
         "Blue Component": 0.7843137254901961,
         "Green Component": 0.8156862745098039,

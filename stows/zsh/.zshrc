@@ -1,12 +1,3 @@
-# DEFAULT_USER='kid'
-# POWERLEVEL9K_IGNORE_TERM_COLORS=true
-# POWERLEVEL9K_MODE='nerdfont-complete'
-# POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time)
-# POWERLEVEL9K_TIME_FOREGROUND='white'
-# POWERLEVEL9K_TIME_BACKGROUND='transparent'
-# POWERLEVEL9K_VI_INSERT_MODE_STRING='I'
-# POWERLEVEL9K_VI_COMMAND_MODE_STRING='N'
-
 source ~/.zplugin/bin/zplugin.zsh
 
 setopt hist_ignore_all_dups # remove older duplicate entries from history
@@ -33,17 +24,29 @@ zplugin light zsh-users/zsh-autosuggestions
 zplugin light zsh-users/zsh-history-substring-search
 zplugin light zdharma/fast-syntax-highlighting
 
-zplugin snippet https://github.com/sbugzu/gruvbox-zsh/blob/master/gruvbox.zsh-theme
+# zplugin snippet https://github.com/sbugzu/gruvbox-zsh/blob/master/gruvbox.zsh-theme
 zplugin snippet https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/fancy-ctrl-z/fancy-ctrl-z.plugin.zsh
 # zplugin light bhilburn/powerlevel9k
-zplugin ice pick"async.zsh" src"pure.zsh"
-zplugin light dfurnes/purer
+
+# zplugin ice pick"async.zsh" src"pure.zsh"
+# zplugin light sindresorhus/pure
+
+# zplugin light denysdovhan/spaceship-prompt
+
+zplugin ice as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' \
+    atpull'%atclone' pick"direnv" src"zhook.zsh"
+zplugin light direnv/direnv
+
+zplugin ice depth=1; zplugin light romkatv/powerlevel10k
+
+# autoload -U promptinit; promptinit
+# prompt pure
 
 # Only for Linux:
 # zplugin ice atclone"dircolors -b LS_COLORS > c.zsh" atpull'%atclone' pick"c.zsh"
 # zplugin light trapd00r/LS_COLORS
 # Only for Mac:
-export CLICOLOR=YES
+# export CLICOLOR=YES
 
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=100000
@@ -81,7 +84,8 @@ else
   alias la='ls --color -lha'
 fi
 
-alias vim='nvim -u ~/.dotfiles/config.vim'
+alias vi='nvim'
+alias vim='nvim'
 
 export EDITOR='nvim'
 
@@ -91,12 +95,20 @@ export PATH="$HOME/.bin:$GOPATH/bin:$HOME/.rbenv/bin:$PATH"
 # bindkey '^[b' backward-word
 # bindkey '^[f' forward-word
 
+# uses `jk` to exit insert mode
+bindkey -M viins 'jk' vi-cmd-mode
+
+# Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
+# Don't go too low otherwise the jk binding won't work
+export KEYTIMEOUT=10
+
+
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd -t d . $HOME"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-ZSH_THEME="" 
+# ZSH_THEME="" 
 
 autoload -z edit-command-line
 zle -N edit-command-line
@@ -116,7 +128,7 @@ fi
 [ -f $HOME/.asdf/asdf.sh ] && . $HOME/.asdf/asdf.sh
 [ -f $HOME/.asdf/completions/asdf.bash ] &&. $HOME/.asdf/completions/asdf.bash
 
-eval "$(rbenv init -)"
+# eval "$(rbenv init -)"
 
 # export LDFLAGS="-L/usr/local/opt/readline/lib"
 # export CPPFLAGS="-I/usr/local/opt/readline/include"
@@ -126,7 +138,7 @@ eval "$(rbenv init -)"
 
 
 export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+# eval "$(pyenv init -)"
+# eval "$(pyenv virtualenv-init -)"
 
-eval "$(direnv hook zsh)"
+# eval "$(direnv hook zsh)"
