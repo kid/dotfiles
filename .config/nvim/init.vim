@@ -11,6 +11,8 @@ autocmd VimEnter *
 
 call plug#begin()
 
+Plug 'editorconfig/editorconfig-vim'
+
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
@@ -18,25 +20,28 @@ Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-obsession'
 
-Plug 'editorconfig/editorconfig-vim'
-" Plug 'lifepillar/vim-mucomplete'
 Plug 'neovim/nvim-lsp'
 
-Plug 'itchyny/lightline.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'mg979/vim-xtabline'
 Plug 'morhetz/gruvbox'
 
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" Plug 'Shougo/deoplete-lsp'
-" Plug 'Shougo/deoppet.nvim', { 'do': ':UpdateRemotePlugins' }
-" Plug 'ervandew/supertab'
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 
 Plug 'roxma/nvim-yarp'
 Plug 'ncm2/ncm2'
 Plug 'ncm2/ncm2-ultisnips'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+
+" TODO
+" - add vimagit
+" - check airline's tabline vs xtabline
 
 call plug#end()
 
@@ -45,7 +50,7 @@ let g:lightline = {
   \ 'colorscheme': 'gruvbox',
   \ }
 
-set guifont=FiraCode\ Nerd\ Font:h10
+set guifont=FiraCode\ Nerd\ Font:h9
 
 set hidden
 
@@ -67,21 +72,13 @@ set updatetime=500
 " Don't show mode in command line, we have lightline for that
 set noshowmode
 
-" lua << EOF
-"   local nvim_lsp = require 'nvim_lsp'
-"   require'nvim_lsp'.rust_analyzer.setup{}
-" EOF
-
-" disable preview window
-" set completeopt-=preview
-
-" set completeopt+=longest,menuone,noselect,noinsert
-" let g:deoplete#enable_at_startup = 1
-" let g:SuperTabDefaultCompletionType = "<c-n>"
+" Display whitespace
+set listchars=tab:→\ ,trail:-,extends:>,precedes:<,nbsp:+,eol:¬
+set list
 
 map <Space> <Leader>
 nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
-vnoremap <localleader> :<c-u>WhichKeyVisual  ','<CR> 
+vnoremap <localleader> :<c-u>WhichKeyVisual  ','<CR>
 
 nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
 nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
@@ -96,7 +93,12 @@ let g:which_key_map = {}
 
 let g:which_key_map.c = {
   \ 'name': '+code',
-  \ 'f': ['<cmd>lua vim.lsp.buf.formatting()', 'format-buffer'],
+  \ 'f': ["luaeval('vim.lsp.buf.formatting()')", 'format-buffer'],
+  \ }
+
+let g:which_key_map.i = {
+  \ 'name': '+insert',
+  \ 's': ['Snippets', 'snippets'],
   \ }
 
 autocmd! User vim-which-key call which_key#register('<Space>', 'g:which_key_map')
@@ -145,3 +147,10 @@ let g:UltiSnipsExpandTrigger		= "<Plug>(ultisnips_expand)"
 let g:UltiSnipsJumpForwardTrigger	= "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger	= "<c-k>"
 let g:UltiSnipsRemoveSelectModeMappings = 0
+
+autocmd! FileType fzf
+autocmd  FileType fzf setlocal noruler nonumber norelativenumber
+
+let g:airline_section_c = airline#section#create(['%t'])
+
+let g:airline#extensions#tabline#enabled = 1
