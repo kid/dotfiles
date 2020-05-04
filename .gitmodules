@@ -1,0 +1,15 @@
+[submodule "stows/base16/.config/base16-shell"]
+	path = stows/base16/.config/base16-shell
+	url = https://github.com/chriskempson/base16-shell.git
+[submodule "stows/zsh/.zplugin/bin"]
+	path = stows/zsh/.zplugin/bin
+	url = https://github.com/zdharma/zplugin.git
+[submodule "stows/fzf/.fzf"]
+	path = stows/fzf/.fzf
+	url = https://github.com/junegunn/fzf.git
+[submodule ".doom.d"]
+	path = .doom.d
+	url = git@github.com:kid/.doom.d.git
+[submodule ".emacs.d"]
+	path = .emacs.d
+	url = https://github.com/hlissner/doom-emacs.git
