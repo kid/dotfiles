@@ -76,6 +76,9 @@ set noshowmode
 set listchars=tab:→\ ,trail:-,extends:>,precedes:<,nbsp:+,eol:¬
 set list
 
+" live preview of search & replace
+set inccommand=nosplit
+
 map <Space> <Leader>
 nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 vnoremap <localleader> :<c-u>WhichKeyVisual  ','<CR>
