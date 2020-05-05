@@ -22,6 +22,9 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-obsession'
 
+Plug 'airblade/vim-gitgutter'
+Plug 'jreybert/vimagit'
+
 Plug 'neovim/nvim-lsp'
 
 Plug 'vim-airline/vim-airline'
