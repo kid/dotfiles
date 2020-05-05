@@ -254,6 +254,17 @@ globalkeys = gears.table.join(
     awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
               {description = "show main menu", group = "awesome"}),
 
+    -- TODO make theses conditional based on computer
+
+    -- Screen
+    awful.key({}, "#232", function () awful.util.spawn("xbacklight -10") end),
+    awful.key({}, "#233", function () awful.util.spawn("xbacklight +10") end),
+
+    -- Volume
+    awful.key({}, "#121", function () awful.util.spawn("amixer -D pulse sset Master 1+ toggle") end),
+    awful.key({}, "#122", function () awful.util.spawn("amixer -D pulse sset Master 5%-") end),
+    awful.key({}, "#123", function () awful.util.spawn("amixer -D pulse sset Master 5%+") end),
+
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
               {description = "swap with next client by index", group = "client"}),
