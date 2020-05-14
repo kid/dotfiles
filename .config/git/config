@@ -1,0 +1,34 @@
+[user]
+	name = Arnaud Rebts
+	email = arnaud.rebts@gmail.com
+[color]
+	ui = true
+[push]
+	default = simple
+	followTags = true
+[core]
+	editor = nvim
+[alias]
+	st = status -s
+	cl = clone
+	ci = commit
+	co = checkout
+	br = branch
+	r = reset
+	cp = cherry-pick
+	gr = grp -Ii
+	diff = diff --word-diff
+	ls = log --decorate --oneline
+	ll = log --decorate --numstat
+	lg = log --decorate --graph --abbrev-commit --date=relative --all
+	prune = fetch --prune
+	undo = reset --soft HEAD^
+	stash-all = stash save --include-untracked
+[merge]
+	ff = only
+[rebase]
+	autosquash = true
+[rerere]
+	enabled = true
+[diff]
+	compactionHeuristic = 1
