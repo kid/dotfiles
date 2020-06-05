@@ -16,7 +16,8 @@
       - https://www.reddit.com/r/neovim/comments/fka58t/coming_back_to_nvim_with_a_very_almost_alllua/?utm_medium=android_app&utm_source=share
             Fully written in Lua, with which key support
 ** TODO Features
-      - Highlight yanked region using 
+      - [ ] Highlight yanked region using TextYankPost
+      - [ ] Figures out swapfiles and persistent undo
       - [ ] Configure haorenW1025/completion-nvim
       - [ ] configure haorenW1025/diagnostic-nvim
       - [ ] vim-signify intead of vim-gitgutter
