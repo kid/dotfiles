@@ -27,7 +27,7 @@ Plug 'jreybert/vimagit'
 
 
 Plug 'vim-airline/vim-airline'
-Plug 'morhetz/gruvbox'
+Plug 'gruvbox-community/gruvbox'
 
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 
