@@ -1,6 +1,7 @@
 * NVIM
 ** Inspiration
       - https://learnvimscriptthehardway.stevelosh.com/
+      - https://www.barbarianmeetscoding.com/blog/2018/10/24/exploring-vim-setting-up-your-vim-to-be-more-awesome-at-vim
       - https://www.chrisatmachine.com/https://www.chrisatmachine.com/
       - https://www.youtube.com/watch?v=Kx-SDJwL01o
       - https://www.reddit.com/r/neovim/comments/gp1pkw/plugin_todoistnvim/
