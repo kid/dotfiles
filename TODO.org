@@ -1,0 +1,34 @@
+* NVIM
+** Inspiration
+      - https://learnvimscriptthehardway.stevelosh.com/
+      - https://www.chrisatmachine.com/https://www.chrisatmachine.com/
+      - https://www.youtube.com/watch?v=Kx-SDJwL01o
+      - https://www.reddit.com/r/neovim/comments/gp1pkw/plugin_todoistnvim/
+      - https://www.youtube.com/watch?v=LLfeDkm-JUc
+      - https://www.youtube.com/watch?v=3jl8a5Wo2l0
+      - https://www.reddit.com/r/neovim/comments/gpnncg/how_to_setup_lsp_in_neovim/
+      - https://www.reddit.com/r/neovim/comments/gofplz/neovim_has_added_the_ability_to_highlight_yanked/
+      - https://www.reddit.com/r/neovim/comments/gjz5cx/whats_a_plugin_that_does_something_you_didnt/
+      - https://www.reddit.com/r/neovim/comments/grrxli/start_to_finish_example_of_setting_up_built_in/
+      - https://github.com/timbedard/dotfiles
+            https://github.com/timbedard/dotfiles/blob/master/config/.config/nvim/init.vim#L76-L88
+         in particular
+      - https://www.reddit.com/r/neovim/comments/fka58t/coming_back_to_nvim_with_a_very_almost_alllua/?utm_medium=android_app&utm_source=share
+            Fully written in Lua, with which key support
+** TODO Features
+      - Highlight yanked region using 
+      - [ ] Configure haorenW1025/completion-nvim
+      - [ ] configure haorenW1025/diagnostic-nvim
+      - [ ] vim-signify intead of vim-gitgutter
+      - [ ] use vim-floaterm?
+      - [ ] https://github.com/mfussenegger/nvim-dap ?
+      - [ ] archseer/snippets.nvim
+      - [ ] https://github.com/wbthomason/lsp-status.nvim
+      - https://github.com/norcalli/nvim-colorizer.lua?
+      - look into nvim's tree sitter? 
+            https://github.com/nvim-treesitter/nvim-treesitter
+            https://www.reddit.com/r/neovim/comments/9ug6qk/nvim_treesitter_video/
+* ZSH
+** TODO move config to XDG_CONFIG (should only need ~\~/.zenv~
+      https://github.com/makccr/dot/blob/master/.zshenv
+
