@@ -26,6 +26,7 @@
       - [ ] https://github.com/mfussenegger/nvim-dap ?
       - [ ] archseer/snippets.nvim
       - [ ] https://github.com/wbthomason/lsp-status.nvim
+      - [ ] Look at vim-clap as an alternative to fzf?
       - https://github.com/norcalli/nvim-colorizer.lua?
       - look into nvim's tree sitter? 
             https://github.com/nvim-treesitter/nvim-treesitter
