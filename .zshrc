@@ -119,7 +119,7 @@ setopt hist_ignore_all_dups   # ignore duplicated commands history list
 setopt hist_ignore_space      # ignore commands that start with space
 setopt hist_verify            # show command with history expansion to user before running it
 setopt inc_append_history     # add commands to HISTFILE in order of execution
-setopt share_history          # share command history data
+# setopt share_history          # share command history data
 setopt always_to_end          # cursor moved to the end in full completion
 setopt hash_list_all          # hash everything before completion
 setopt completealiases        # complete alisases
@@ -148,17 +148,17 @@ autoload colors && colors
 # FANCY-CTRL-Z      #
 #####################
 function fg-fzf() {
-	job="$(jobs | fzf -0 -1 | sed -E 's/\[(.+)\].*/\1/')" && echo '' && fg %$job
+  job="$(jobs | fzf -0 -1 | sed -E 's/\[(.+)\].*/\1/')" && echo '' && fg %$job
 }
 
 function fancy-ctrl-z () {
-	if [[ $#BUFFER -eq 0 ]]; then
-		BUFFER=" fg-fzf"
-		zle accept-line -w
-	else
-		zle push-input -w
-		zle clear-screen -w
-	fi
+  if [[ $#BUFFER -eq 0 ]]; then
+    BUFFER=" fg-fzf"
+    zle accept-line -w
+  else
+    zle push-input -w
+    zle clear-screen -w
+  fi
 }
 
 zle -N fancy-ctrl-z
@@ -166,6 +166,14 @@ bindkey '^Z' fancy-ctrl-z
 
 if [[ -x "$(command -v luarocks)" ]]; then
   eval `luarocks path --bin`
+fi
+
+
+#####################
+# ASDF              #
+#####################
+if [[ -r "${HOME}/.asdf/asdf.sh" ]]; then
+  source "${HOME}/.asdf/asdf.sh"
 fi
 
 #####################
@@ -182,3 +190,8 @@ fi
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
 
 export MANPAGER='nvim +Man!'
+export PATH="/usr/local/sbin:${PATH}"
+export PATH="${HOME}/.cargo/bin:${PATH}"
+export PATH="${HOME}/go/bin:${PATH}"
+
+alias k=kubectl
