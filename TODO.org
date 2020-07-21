@@ -29,6 +29,8 @@
       - [ ] https://github.com/wbthomason/lsp-status.nvim
       - [ ] Look at vim-clap as an alternative to fzf?
       - https://github.com/norcalli/nvim-colorizer.lua?
+      - https://github.com/tjdevries/expressline.nvim
+      - https://github.com/wbthomason/packer.nvim for packages?
       - look into nvim's tree sitter? 
             https://github.com/nvim-treesitter/nvim-treesitter
             https://www.reddit.com/r/neovim/comments/9ug6qk/nvim_treesitter_video/

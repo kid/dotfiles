@@ -34,3 +34,4 @@
 	enabled = true
 [diff]
 	compactionHeuristic = 1
+	submodule = diff
