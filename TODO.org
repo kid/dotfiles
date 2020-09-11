@@ -33,8 +33,10 @@
       - https://github.com/wbthomason/packer.nvim for packages?
       - https://github.com/Akin909/nvim-bufferline.lua
       - https://github.com/tjdevries/lsp_extensions.nvim inlay hints
+      - https://github.com/svermeulen/vimpeccable
       - look into nvim's tree sitter? 
             https://github.com/nvim-treesitter/nvim-treesitter
+            https://github.com/nvim-treesitter/completion-treesitter
             https://www.reddit.com/r/neovim/comments/9ug6qk/nvim_treesitter_video/
 * ZSH
 ** TODO move config to XDG_CONFIG (should only need ~\~/.zenv~
