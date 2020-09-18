@@ -17,6 +17,7 @@
       - https://www.reddit.com/r/neovim/comments/fka58t/coming_back_to_nvim_with_a_very_almost_alllua/?utm_medium=android_app&utm_source=share
             Fully written in Lua, with which key support
       - https://www.reddit.com/r/neovim/comments/haa6zb/what_lua_code_do_you_have_to_enhance_neovim/
+      - https://nathansmith.io/posts/neovim-lsp
 ** TODO Features
       - [ ] Highlight yanked region using TextYankPost
       - [ ] Figures out swapfiles and persistent undo
