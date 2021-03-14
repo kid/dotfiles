@@ -257,13 +257,14 @@ globalkeys = gears.table.join(
     -- TODO make theses conditional based on computer
 
     -- Screen
-    awful.key({}, "#232", function () awful.util.spawn("xbacklight -10") end),
-    awful.key({}, "#233", function () awful.util.spawn("xbacklight +10") end),
+    awful.key({}, "XF86MonBrightnessDown", function () awful.util.spawn("xbacklight -10") end),
+    -- awful.key({}, "#233", function () awful.util.spawn("xbacklight +10") end),
+    awful.key({}, "XF86MonBrightnessUp", function () awful.util.spawn("xbacklight +10") end),
 
     -- Volume
-    awful.key({}, "#121", function () awful.util.spawn("amixer -D pulse sset Master 1+ toggle") end),
-    awful.key({}, "#122", function () awful.util.spawn("amixer -D pulse sset Master 5%-") end),
-    awful.key({}, "#123", function () awful.util.spawn("amixer -D pulse sset Master 5%+") end),
+    awful.key({}, "XF86AudioMute", function () awful.util.spawn("amixer -D pulse sset Master 1+ toggle") end),
+    awful.key({}, "XF86AudioLowerVolume", function () awful.util.spawn("amixer -D pulse sset Master 5%-") end),
+    awful.key({}, "XF86AudioRaiseVolume", function () awful.util.spawn("amixer -D pulse sset Master 5%+") end),
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
