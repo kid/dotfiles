@@ -338,7 +338,9 @@ globalkeys = gears.table.join(
               end,
               {description = "lua execute prompt", group = "awesome"}),
     -- Menubar
-    awful.key({ modkey }, "space", function() menubar.show() end,
+    -- awful.key({ modkey }, "space", function() menubar.show() end,
+    --           {description = "show the menubar", group = "launcher"})
+    awful.key({ modkey }, "space", function() awful.spawn("rofi -show") end,
               {description = "show the menubar", group = "launcher"})
 )
 
@@ -501,6 +503,10 @@ awful.rules.rules = {
         }
       }, properties = { floating = true }},
 
+      {
+	rule_any = { name = { "rofi" } },
+	properties = { maximized = true, ontop = true },
+      },
     -- Add titlebars to normal clients and dialogs
     -- { rule_any = {type = { "normal", "dialog" }
     --   }, properties = { titlebars_enabled = true }
