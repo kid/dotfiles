@@ -4,3 +4,13 @@
 [submodule "/home/kid/.config/rofi/themes/gruvbox"]
 	path = /home/kid/.config/rofi/themes/gruvbox
 	url = https://github.com/bardisty/gruvbox-rofi.git
+[submodule ".cache/zsh/zinit/bin"]
+	path = .cache/zsh/zinit/bin
+	url = https://github.com/zdharma/zinit.git
+[submodule ".asdf"]
+	path = .asdf
+	url = https://github.com/asdf-vm/asdf.git
+	branch = tags/v0.7.8
+[submodule ".config/awesome/lain"]
+	path = .config/awesome/lain
+	url = https://github.com/lcpz/lain.git
