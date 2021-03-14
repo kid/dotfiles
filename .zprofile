@@ -8,5 +8,5 @@ if [ "$(uname)" = "Darwin" ]; then
 fi
 
 if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-  exec startx &> /dev/null
+  startx &> /dev/null
 fi
