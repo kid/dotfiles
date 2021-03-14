@@ -50,12 +50,12 @@ zstyle ':fzf-tab:complete:kill:argument-rest' extra-opts --preview=$extract'ps -
 zstyle ':fzf-tab:complete:cd:*' extra-opts --preview=$extract'exa -1 --color=always ${~ctxt[hpre]}$in'
 
 # FZF
-zinit ice lucid wait'0b' from"gh-r" as"program"
-zinit light junegunn/fzf-bin
+# zinit ice lucid wait'0b' from"gh-r" as"program"
+# zinit light junegunn/fzf-bin
 
 # FZF BINARY AND TMUX HELPER SCRIPT
-zinit ice lucid wait'0c' as"command" pick"bin/fzf-tmux"
-zinit light junegunn/fzf
+# zinit ice lucid wait'0c' as"command" pick"bin/fzf-tmux"
+# zinit light junegunn/fzf
 
 # BIND MULTIPLE WIDGETS USING FZF
 zinit ice lucid wait'0c' multisrc"shell/{completion,key-bindings}.zsh" id-as"junegunn/fzf_completions" pick"/dev/null"
@@ -95,12 +95,12 @@ zinit ice as"command" from"gh-r" mv"fd* -> fd" pick"fd/fd"
 zinit light sharkdp/fd
 
 # GH-CLI
-zinit ice lucid wait"0" as"program" from"gh-r" pick"gh*/bin/gh"
-zinit light "cli/cli"
+# zinit ice lucid wait"0" as"program" from"gh-r" pick"gh*/bin/gh"
+# zinit light "cli/cli"
 
-zinit from"gh-r" as"program" mv"direnv* -> direnv" \
-  atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' pick"direnv" src"zhook.zsh" \
-  for direnv/direnv
+# zinit from"gh-r" as"program" mv"direnv* -> direnv" \
+#   atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' pick"direnv" src"zhook.zsh" \
+#   for direnv/direnv
   # atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' pick"direnv" # src"zhook.zsh"
 # zinit light direnv/direnv
 #####################
@@ -188,10 +188,12 @@ fi
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
-
-export MANPAGER='nvim +Man!'
-export PATH="/usr/local/sbin:${PATH}"
+export MANPAGER="nvim +Man!"
+export PATH="${HOME}/.local/bin:${PATH}"
+# export PATH="/usr/local/sbin:${PATH}"
 export PATH="${HOME}/.cargo/bin:${PATH}"
 export PATH="${HOME}/go/bin:${PATH}"
+
+export FZF_DEFAULT_COMMAND="fd --hidden"
 
 alias k=kubectl
