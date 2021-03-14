@@ -585,4 +585,21 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 beautiful.useless_gap = 5
 
 -- Autostart
-awful.spawn.with_shell("picom")
+
+local run_on_start = {
+  "picom --experimental-backend",
+  "redshift",
+  "unclutter",
+  "telegram-desktop",
+}
+
+for _, app in ipairs(run_on_start) do
+  local pattern = app
+  local first_space = app:find(" ")
+  if first_space then
+    pattern = app:sub(0, first_space - 1)
+  end
+
+  local command = string.format("pgrep -u $USER -x %s > /dev/null || (%s)", pattern, app)
+  awful.spawn.with_shell(command)
+end
