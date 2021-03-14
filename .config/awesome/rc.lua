@@ -612,6 +612,7 @@ local run_on_start = {
   "redshift",
   "unclutter",
   "telegram-desktop",
+  "discord",
 }
 
 for _, app in ipairs(run_on_start) do
