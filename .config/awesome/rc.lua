@@ -54,7 +54,7 @@ beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 beautiful.font = "FiraCode Nerd Font 12"
 
 -- This is used later as the default terminal and editor to run.
-terminal = "kitty"
+terminal = os.getenv("TERMINAL") or "kitty"
 editor = os.getenv("EDITOR") or "nvim"
 editor_cmd = terminal .. " -e " .. editor
 
