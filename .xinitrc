@@ -1,8 +1,7 @@
 #!/bin/sh
 
-wm="${WM:-awesome}"
+session="${1:-awesome}"
 
-# export TERMINAL="kitty"
 export TERMINAL="alacritty"
 export WINIT_X11_SCALE_FACTOR=1
 
@@ -15,4 +14,8 @@ if [ -f ~/.Xresources ]; then
   xrdb -merge ~/.Xresources
 fi
 
-exec "$wm"
+case $session in
+  awesome ) exec awesome;;
+  leftwm  ) exec dbus-launch leftwm;;
+  xterm   ) exec xterm;;
+esac
