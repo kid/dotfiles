@@ -32,7 +32,7 @@ zinit light zsh-users/zsh-autosuggestions
 # ENHANCD
 zinit ice wait"0b" lucid
 zinit light b4b4r07/enhancd
-export ENHANCD_FILTER=fzf
+export ENHANCD_FILTER="fzf"
 
 # TAB COMPLETIONS
 zinit ice wait"0b" lucid blockf
@@ -50,10 +50,10 @@ zstyle ':fzf-tab:complete:kill:argument-rest' extra-opts --preview=$extract'ps -
 zstyle ':fzf-tab:complete:cd:*' extra-opts --preview=$extract'exa -1 --color=always ${~ctxt[hpre]}$in'
 
 # FZF
-zinit ice lucid wait'0b' from"gh-r" as"program"
-zinit light junegunn/fzf-bin
+# zinit ice lucid wait'0b' from"gh-r" as"program"
+# zinit light junegunn/fzf-bin
 
-# FZF BINARY AND TMUX HELPER SCRIPT
+# # FZF BINARY AND TMUX HELPER SCRIPT
 zinit ice lucid wait'0c' as"command" pick"bin/fzf-tmux"
 zinit light junegunn/fzf
 
@@ -98,9 +98,9 @@ zinit light sharkdp/fd
 zinit ice lucid wait"0" as"program" from"gh-r" pick"gh*/bin/gh"
 zinit light "cli/cli"
 
-zinit from"gh-r" as"program" mv"direnv* -> direnv" \
-  atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' pick"direnv" src"zhook.zsh" \
-  for direnv/direnv
+# zinit from"gh-r" as"program" mv"direnv* -> direnv" \
+#   atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' pick"direnv" src"zhook.zsh" \
+#   for direnv/direnv
   # atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' pick"direnv" # src"zhook.zsh"
 # zinit light direnv/direnv
 #####################
@@ -187,11 +187,15 @@ fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
 
-export MANPAGER='nvim +Man!'
+alias dotfiles="git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
+# compdef dotfiles='git'
+
+
+alias grep="grep --color"
+alias k="kubectl"
+
+export MANPAGER="nvim +Man!"
 export PATH="/usr/local/sbin:${PATH}"
-export PATH="${HOME}/.cargo/bin:${PATH}"
+# export PATH="${HOME}/.cargo/bin:${PATH}"
 export PATH="${HOME}/go/bin:${PATH}"
-
-alias k=kubectl
