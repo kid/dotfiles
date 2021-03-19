@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 export XDG_CACHE_HOME="${XDG_CACHE_HOME:=$HOME/.cache}"
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:=$HOME/.config}"
 
@@ -53,15 +60,9 @@ zstyle ':fzf-tab:complete:cd:*' extra-opts --preview=$extract'exa -1 --color=alw
 # zinit ice lucid wait'0b' from"gh-r" as"program"
 # zinit light junegunn/fzf-bin
 
-<<<<<<< HEAD:.config/zsh/.zshrc
 # # FZF BINARY AND TMUX HELPER SCRIPT
 zinit ice lucid wait'0c' as"command" pick"bin/fzf-tmux"
 zinit light junegunn/fzf
-=======
-# FZF BINARY AND TMUX HELPER SCRIPT
-# zinit ice lucid wait'0c' as"command" pick"bin/fzf-tmux"
-# zinit light junegunn/fzf
->>>>>>> de1992cf72f7184e2c135f26a7f507a414d57b66:.zshrc
 
 # BIND MULTIPLE WIDGETS USING FZF
 zinit ice lucid wait'0c' multisrc"shell/{completion,key-bindings}.zsh" id-as"junegunn/fzf_completions" pick"/dev/null"
@@ -204,3 +205,6 @@ alias k="kubectl"
 export MANPAGER="nvim +Man!"
 
 export FZF_DEFAULT_COMMAND="fd --hidden"
+
+# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
+[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
